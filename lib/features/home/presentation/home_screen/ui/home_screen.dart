@@ -8,6 +8,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../../core/widgets/main_widgets/app_scaffold.dart' show AppScaffold;
+import '../../../../documents/presentation/documents_screen/ui/widgets/documents_body.dart';
 import '../../../domain/entity/drawer_entity.dart';
 int va = 0;
 class HomeScreen extends StatefulWidget {
@@ -78,5 +79,6 @@ class _HomeScreenState extends State<HomeScreen> {
 final screens = [
   HomeBody(),
   BillingBody(),
+  DocumentsBody(),
 ];
 
