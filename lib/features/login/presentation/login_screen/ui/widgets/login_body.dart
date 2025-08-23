@@ -4,11 +4,12 @@ import 'package:eltakamel/features/login/presentation/login_screen/logic/login_c
 import 'package:eltakamel/gen/assets.gen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart'
-    show BlocBuilder, BlocConsumer, BlocProvider;
+    show BlocConsumer, BlocProvider;
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 
-import '../../../../../../core/helpers/pop_ups/toasts/app_toast.dart' show AppToast;
+import '../../../../../../core/helpers/pop_ups/toasts/app_toast.dart'
+    show AppToast;
 import '../../../../../../core/helpers/validations/app_form_validations.dart'
     show AppFormValidations;
 
@@ -140,7 +141,89 @@ class LoginForm extends StatelessWidget {
                         ),
                       ),
                       TextButton(
-                        onPressed: isLoading ? null : () {},
+                        onPressed:
+                        isLoading
+                            ? null
+                            : () {
+                          showDialog(
+                            context: context,
+                            builder: (ctx) {
+                              final textTheme =
+                                  Theme
+                                      .of(context)
+                                      .textTheme;
+                              final inputBorder = OutlineInputBorder(
+                                  borderSide: BorderSide(
+                                      color: Colors.grey.shade300));
+                              return Dialog(
+                                child: Container(
+                                  padding: REdgeInsets.all(16),
+                                  color: Colors.white,
+                                  child: Column(
+                                    crossAxisAlignment:
+                                    CrossAxisAlignment.start,
+                                    mainAxisSize: MainAxisSize.min,
+                                    spacing: 8.h,
+                                    children: [
+                                      Text(
+                                        'Password Recovery',
+                                        style: textTheme.displaySmall,
+                                      ),
+                                      Text(
+                                        'Enter your email address to restore your password',
+                                        textAlign: TextAlign.start,
+                                        style: textTheme.bodySmall!
+                                            .copyWith(
+                                          color: Colors.grey,
+                                        ),
+                                      ),
+                                      TextFormField(
+                                        cursorColor: Colors.black,
+                                        decoration: InputDecoration(
+                                          hintText: 'Email Address',
+                                          hintStyle: textTheme.labelLarge!
+                                              .copyWith(color: Colors.grey),
+                                          prefixIcon: Container(
+                                            padding: EdgeInsets.zero,
+                                            margin: EdgeInsets.zero,
+                                            decoration: BoxDecoration(
+                                                color: Colors.grey.shade100,
+                                                border: Border.all(
+                                                    color: Colors.grey.shade300)
+
+                                            ), child: Icon(Icons.lock),),
+                                          border: inputBorder,
+                                          enabledBorder: inputBorder,
+                                          disabledBorder: inputBorder,
+                                          focusedBorder: inputBorder,
+                                          focusedErrorBorder: inputBorder,
+                                          errorBorder: inputBorder,
+                                        ),
+                                      ),
+                                      ElevatedButton(
+                                        onPressed: () {},
+                                        style: ButtonStyle(
+                                          shape: WidgetStatePropertyAll(
+                                              ContinuousRectangleBorder()),
+                                          backgroundColor: WidgetStatePropertyAll(
+                                              Colors.lightBlue.shade400),
+                                        ),
+
+                                        child: Text(
+                                          'Restore',
+                                          style: textTheme.labelLarge!
+                                              .copyWith(
+                                            color: Colors.white,
+                                          ),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              );
+                            },
+                          );
+                        },
                         child: Text(
                           'Forget Password?',
                           style: Theme.of(context).textTheme.labelLarge
@@ -157,9 +240,8 @@ class LoginForm extends StatelessWidget {
         listener: (BuildContext context, LoginState state) {
           if (state is LoginSuccessState) {
             context.replace(Routes.homeScreen);
-          }
-          else if(state is LoginErrorState){
-            AppToast.showToast(message: state.message,color: AppColors.black,);
+          } else if (state is LoginErrorState) {
+            AppToast.showToast(message: state.message, color: AppColors.black);
           }
         },
       ),
