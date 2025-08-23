@@ -4,7 +4,10 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'empty_table_widget.dart';
 
 class TableWidget extends StatelessWidget {
-  const TableWidget({super.key, required this.headers, required this.data});
+  TableWidget({super.key, required this.headers, required this.data}) : assert(
+  data.every((row) => row.length == headers.length),
+  'Each row length must equal headers length',
+  );
 
   final List<String> headers;
   final List<List<String>> data;

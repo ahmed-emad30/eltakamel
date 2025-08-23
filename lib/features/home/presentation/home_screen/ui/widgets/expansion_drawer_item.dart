@@ -6,6 +6,7 @@ import 'package:go_router/go_router.dart';
 
 import '../../../../../../core/utils/service_locator.dart' show sl;
 import '../../../../domain/entity/drawer_entity.dart';
+import '../../logic/drawer_cubit/drawer_cubit.dart' show DrawerCubit;
 
 class ExpansionDrawerItem extends StatelessWidget {
   const ExpansionDrawerItem({super.key, required this.items});
@@ -18,12 +19,15 @@ class ExpansionDrawerItem extends StatelessWidget {
       return const SizedBox.shrink();
     }
     final firstItem = items.first;
+
+
     final otherItems = items.skip(1).toList();
     return BlocProvider.value(
       value: sl.call<BillingCubit>(),
       child: BlocBuilder<BillingCubit, BillingState>(
         builder: (context, state) {
     return ExpansionTile(
+
 
       title: Text(
         firstItem.title,
@@ -53,8 +57,11 @@ class ExpansionDrawerItem extends StatelessWidget {
             ),
             onTap: () {
               context.pop();
+              final drawerCubit = sl.call<DrawerCubit>();
+              if (drawerCubit.state.index != 1) {
+                drawerCubit.changeIndex(1);
+              }
               context.read<BillingCubit>().changeIndex(index);
-              // context.go(item.page);
             },
           );
         },
