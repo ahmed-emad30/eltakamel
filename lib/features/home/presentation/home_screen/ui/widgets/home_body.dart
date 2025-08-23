@@ -1,9 +1,6 @@
-import 'package:auto_size_text/auto_size_text.dart' show AutoSizeText;
-import 'package:cached_network_image/cached_network_image.dart';
-import 'package:flutter/cupertino.dart' show CupertinoIcons;
+import 'package:eltakamel/core/app_themes/colors/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:eltakamel/core/app_themes/colors/app_colors.dart';
 
 import '../../../../../../gen/assets.gen.dart' show Assets;
 
@@ -16,7 +13,7 @@ class HomeBody extends StatelessWidget {
     return SingleChildScrollView(
       child: Column(
         children: [
-          TitleHeader(textTheme: textTheme),
+          TitleHeader(textTheme: textTheme, title: 'Account Information',),
           Padding(
             padding: REdgeInsets.symmetric(horizontal: 16.0),
             child: Column(
@@ -254,8 +251,9 @@ class InfoCard extends StatelessWidget {
 }
 
 class TitleHeader extends StatelessWidget {
-  const TitleHeader({super.key, required this.textTheme});
+  const TitleHeader({super.key, required this.textTheme, required this.title});
 
+  final String title;
   final TextTheme textTheme;
 
   @override
@@ -267,8 +265,8 @@ class TitleHeader extends StatelessWidget {
       color: Colors.white,
       alignment: AlignmentDirectional.centerStart,
       child: Text(
-        'Account Information',
-        style: textTheme.headlineSmall!.copyWith(color: Colors.grey),
+        title,
+        style: textTheme?.headlineSmall!.copyWith(color: Colors.grey),
       ),
     );
   }
