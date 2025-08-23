@@ -1,7 +1,9 @@
 part of 'billing_cubit.dart';
 
 sealed class BillingState extends Equatable {
-  const BillingState();
+  const BillingState({this.index = 0});
+
+  final int index;
 }
 
 final class BillingInitialState extends BillingState {
@@ -11,10 +13,9 @@ final class BillingInitialState extends BillingState {
   List<Object> get props => [];
 }
 
-final class ChangeIndex {
-  final int index;
+final class ChangeIndexState extends BillingState {
+  const ChangeIndexState(int index) : super(index: index);
 
-  const ChangeIndex({required this.index});
-
-  List<Object> get props => [index];
+  @override
+  List<Object?> get props => [index];
 }

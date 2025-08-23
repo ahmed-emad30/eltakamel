@@ -1,10 +1,10 @@
 import 'package:dio/dio.dart';
-import 'package:internet_connection_checker_plus/internet_connection_checker_plus.dart';
-import 'package:eltakamel/core/helpers/helper_functions/network_status.dart';
-import 'package:eltakamel/core/api/api_request_helpers/api_consumer.dart';
 import 'package:eltakamel/core/api/api_request_helpers/dio_consumer.dart';
-import 'package:get_it/get_it.dart';
+import 'package:eltakamel/core/helpers/helper_functions/network_status.dart';
+import 'package:eltakamel/features/billing/presentation/billing_screen/logic/billing_cubit.dart';
 import 'package:eltakamel/features/shared/presentation/shared_screen/logic/shared_cubit.dart';
+import 'package:get_it/get_it.dart';
+import 'package:internet_connection_checker_plus/internet_connection_checker_plus.dart';
 
 final sl = GetIt.instance;
 
@@ -18,6 +18,9 @@ class ServiceLocator {
     /// Core
     sl.registerLazySingleton<NetworkStatus>(
       () => NetworkStatusImp(sl<InternetConnection>()),
+    );
+    sl.registerLazySingleton<BillingCubit>(
+          () => BillingCubit(),
     );
     // sl.registerLazySingleton<ApiConsumer>(() => ApiConsumer());
 

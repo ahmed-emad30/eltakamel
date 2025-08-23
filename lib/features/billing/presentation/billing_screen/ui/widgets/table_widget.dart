@@ -35,7 +35,8 @@ class TableWidget extends StatelessWidget {
 
               columns: List.generate(
                 headers.length,
-                (index) => DataColumn(label: Text(headers[index])),
+                    (index) =>
+                    DataColumn(label: Text(headers[index], maxLines: 2,)),
               ),
               rows:
                   hasElements

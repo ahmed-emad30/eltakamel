@@ -63,11 +63,16 @@ class _HomeScreenState extends State<HomeScreen> {
       body: screens[1],
         drawer: Drawer(
           backgroundColor: Colors.blueGrey,
+
           child:
               SafeArea(
                 child: Column(
                   children: [
-                   DrawerItem(item: DrawerEntity(title: 'Account', icon: Icons.person, page:Routes.homeScreen ),) ,
+                    DrawerItem(
+
+                      item: DrawerEntity(title: 'Account',
+                          icon: Icons.person,
+                          page: Routes.homeScreen),),
                     ExpansionDrawerItem(
                       items: [
                         const DrawerEntity(title: 'Billing', icon: CupertinoIcons.book_solid, page:Routes.homeScreen ),

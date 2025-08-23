@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart' show BlocProvider, BlocBuilder;
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import '../../../../../../core/utils/service_locator.dart' show sl;
 import '../../../../../home/presentation/home_screen/ui/widgets/home_body.dart'
     show TitleHeader;
 
@@ -14,19 +15,20 @@ class BillingBody extends StatelessWidget {
   Widget build(BuildContext context) {
     final textTheme = Theme.of(context).textTheme;
     return SingleChildScrollView(
-      child: BlocProvider(
-        create: (context) => BillingCubit(),
+      child: BlocProvider.value(
+        value: sl.call<BillingCubit>(),
         child: BlocBuilder<BillingCubit, BillingState>(
           builder: (context, state) {
             final cubit = BillingCubit.getCubit(context);
+            final dataItem = cubit.data[cubit.currentIndex];
             return Column(
               children: [
-                TitleHeader(title: 'Invoices', textTheme: textTheme),
+                TitleHeader(title: dataItem.title, textTheme: textTheme),
                 32.verticalSpace,
 
                 TableWidget(
-                  headers: cubit.data[cubit.currentIndex].headers,
-                  data: cubit.data[cubit.currentIndex].data,
+                  headers: dataItem.headers,
+                  data: dataItem.data,
                 ),
               ],
             );

@@ -23,12 +23,36 @@ class BillingCubit extends Cubit<BillingState> {
       ],
       data: [],
     ),
+    BillingDataEntity(
+      title: 'Payments',
+      headers: [
+        'Receipt No',
+        'Date',
+        'Type',
+        'Amount',
+        'Description',
+      ],
+      data: [],
+    ),
+    BillingDataEntity(
+      title: 'Balance Journal',
+      headers: [
+        'Date',
+        'CR',
+        'DR',
+        'Amount',
+        'Balance',
+        'Operation',
+        'Description',
+      ],
+      data: [],
+    ),
   ];
   int currentIndex = 0;
 
-  changeIndex(int index) {
+  void changeIndex(int index) {
     currentIndex = index;
-    emit(state);
+    emit(ChangeIndexState(currentIndex));
   }
 
   getData() {}
