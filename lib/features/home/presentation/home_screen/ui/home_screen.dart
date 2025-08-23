@@ -28,8 +28,8 @@ class _HomeScreenState extends State<HomeScreen> {
         title:  Text('User Portal', style: Theme.of(context).textTheme.headlineSmall!.copyWith(color: Colors.white)),
         centerTitle: true,
         actions: [
-          IconButton(
-            onPressed: () {},
+          PopupMenuButton(
+            
 
             icon: CircleAvatar(
               backgroundColor: Colors.blue.shade100,
@@ -37,6 +37,23 @@ class _HomeScreenState extends State<HomeScreen> {
               child: Icon(Icons.person, color: Colors.black,),
 
             ),
+            shape: ContinuousRectangleBorder(),
+            position: PopupMenuPosition.under,
+            itemBuilder: (BuildContext context) {
+              return [
+                PopupMenuItem(child: Row(
+                  mainAxisSize: MainAxisSize.min,
+                  spacing: 8,
+                  children: [
+                    Icon(Icons.lock, color: Colors.grey,),
+                    Text('Logout', style: Theme
+                        .of(context)
+                        .textTheme
+                        .titleMedium,),
+                  ],
+                ))
+              ];
+            },
           )
         ],
         actionsPadding: REdgeInsetsDirectional.only(end: 8),
