@@ -9,7 +9,8 @@ class LocaleDirectionHandler extends StatelessWidget {
   Widget build(BuildContext context) {
     return Transform(
       alignment: Alignment.center,
-      transform: /*context.isArabic*/false ? (Matrix4.identity()..scale(-1.0, 1.0)) : Matrix4.identity(),
+      transform: /*context.isArabic*/
+          false ? (Matrix4.identity()..scale(-1.0, 1.0)) : Matrix4.identity(),
       child: child,
     );
   }

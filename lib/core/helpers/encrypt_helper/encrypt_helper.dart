@@ -11,10 +11,7 @@ sealed class Encryptor {
   static final encrypt.Key _key = encrypt.Key.fromBase64(_keyString);
   static final encrypt.IV _iv = encrypt.IV.fromBase64(_ivString);
   static final encrypt.Encrypter _encryptor = encrypt.Encrypter(
-    encrypt.AES(
-      _key,
-      mode: encrypt.AESMode.cbc,
-    ),
+    encrypt.AES(_key, mode: encrypt.AESMode.cbc),
   );
 
   static String encryptData(String data) {
@@ -43,5 +40,3 @@ sealed class Encryptor {
     return originalData;
   }
 }
-
-

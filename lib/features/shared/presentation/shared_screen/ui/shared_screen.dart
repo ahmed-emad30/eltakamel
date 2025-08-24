@@ -1,7 +1,9 @@
-import 'package:eltakamel/features/shared/presentation/shared_screen/ui/widgets/shared_body.dart' show SharedBody;
+import 'package:eltakamel/features/shared/presentation/shared_screen/ui/widgets/shared_body.dart'
+    show SharedBody;
 import 'package:flutter/material.dart';
 
-import '../../../../../core/widgets/main_widgets/app_scaffold.dart' show AppScaffold;
+import '../../../../../core/widgets/main_widgets/app_scaffold.dart'
+    show AppScaffold;
 
 class SharedScreen extends StatelessWidget {
   const SharedScreen({super.key});

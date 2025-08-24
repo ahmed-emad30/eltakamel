@@ -19,10 +19,12 @@ class AppPopupMenuItem<T> extends PopupMenuItem<T> {
   final bool checked;
 
   @override
-  PopupMenuItemState<T, AppPopupMenuItem<T>> createState() => _AppPopupMenuItemState<T>();
+  PopupMenuItemState<T, AppPopupMenuItem<T>> createState() =>
+      _AppPopupMenuItemState<T>();
 }
 
-class _AppPopupMenuItemState<T> extends PopupMenuItemState<T, AppPopupMenuItem<T>> {
+class _AppPopupMenuItemState<T>
+    extends PopupMenuItemState<T, AppPopupMenuItem<T>> {
   @override
   Widget buildChild() {
     return IgnorePointer(
@@ -32,10 +34,7 @@ class _AppPopupMenuItemState<T> extends PopupMenuItemState<T, AppPopupMenuItem<T
           children: [
             Expanded(
               child: Container(
-                padding: const EdgeInsets.symmetric(
-                  vertical: 6,
-                  horizontal: 7,
-                ),
+                padding: const EdgeInsets.symmetric(vertical: 6, horizontal: 7),
                 // color: widget.checked ? AppColors.sg02 : null,
                 child: widget.child ?? const SizedBox.shrink(),
               ),

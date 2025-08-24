@@ -79,10 +79,10 @@ class AdaptiveColumn extends StatelessWidget {
 
   // Helper method to add spacing between items
   List<Widget> _addSpacingBetweenItems(
-      List<Widget> items,
-      double spacing, {
-        required bool isRow,
-      }) {
+    List<Widget> items,
+    double spacing, {
+    required bool isRow,
+  }) {
     if (items.isEmpty) return [];
     if (items.length == 1) return items;
 

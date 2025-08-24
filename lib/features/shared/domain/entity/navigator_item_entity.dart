@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart' show IconData;
 
-class NavigatorItemEntity{
+class NavigatorItemEntity {
   final String title;
   final IconData selectedIcon;
   final IconData unSelectedIcon;

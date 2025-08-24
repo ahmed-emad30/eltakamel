@@ -1,5 +1,4 @@
 sealed class Routes {
-
   static const String baseRoute = '/';
   static const String splashScreen = '${baseRoute}splashScreen';
   static const String homeScreen = '${baseRoute}homeScreen';
@@ -10,5 +9,9 @@ sealed class Routes {
   static const String contactScreen = '${baseRoute}contactScreen';
   static const String servicesScreen = '${baseRoute}servicesScreen';
   static const String allProjectsScreen = '${baseRoute}allProjectsScreen';
-  static const String projectDetailsScreen = '$allProjectsScreen/projectDetailsScreen';
-}
+  static const String projectDetailsScreen =
+      '$allProjectsScreen/projectDetailsScreen';
+  static const String dataUsageScreen = '${baseRoute}dataUsageScreen';
+  static const String packagesScreen = '${baseRoute}packagesScreen';
+  static const String supportScreen = '${baseRoute}supportScreen';
+  }

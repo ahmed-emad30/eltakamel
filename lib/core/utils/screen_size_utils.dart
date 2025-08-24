@@ -98,5 +98,7 @@ extension ScreenSizeUtilsExtension on BuildContext {
 
   /// Returns the screen size type based on a given width
   ScreenSizeType get screenSizeTypeFromWidth =>
-      ScreenSizeUtils.getScreenSizeTypeFromWidth(MediaQuery.of(this).size.width);
+      ScreenSizeUtils.getScreenSizeTypeFromWidth(
+        MediaQuery.of(this).size.width,
+      );
 }

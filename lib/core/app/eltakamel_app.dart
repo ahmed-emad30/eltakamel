@@ -54,7 +54,6 @@ class EltakamelApp extends StatelessWidget {
           theme: AppLightThemes.call(),
           themeMode: ThemeMode.dark,
 
-
           // initialRoute: Routes.auth,
 
           /*   locale: cubit.locale,

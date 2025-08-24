@@ -1,11 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:go_router/go_router.dart';
-import 'package:eltakamel/core/app_routes/routes_strings.dart';
-import 'package:eltakamel/core/app_themes/colors/app_colors.dart';
-import 'package:eltakamel/features/home/presentation/home_screen/ui/widgets/home_body.dart';
 
-import '../../../gen/assets.gen.dart' show Assets;
+import 'app_drawer.dart';
 
 class AppScaffold extends StatelessWidget {
   final PreferredSizeWidget? appBar;
@@ -21,6 +16,7 @@ class AppScaffold extends StatelessWidget {
   final Color? backgroundColor;
   final bool? resizeToAvoidBottomInset;
   final FloatingActionButtonLocation? floatingActionButtonLocation;
+  final bool showAppDrawer;
 
   const AppScaffold({
     super.key,
@@ -35,18 +31,21 @@ class AppScaffold extends StatelessWidget {
     this.backgroundColor,
     this.resizeToAvoidBottomInset,
     this.floatingActionButtonLocation,
-    this.sidebar, this.appBarTitle,
+    this.sidebar,
+    this.appBarTitle,
+    this.showAppDrawer = true,
   });
 
   @override
   Widget build(BuildContext context) {
-    final logoSize = 30.dm;
     return Scaffold(
       appBar: appBar,
       backgroundColor: backgroundColor,
-      body: Padding(padding: padding ?? EdgeInsets.zero, child: CustomScrollView(
-        slivers: [
-/*
+      body: Padding(
+        padding: padding ?? EdgeInsets.zero,
+        child: CustomScrollView(
+          slivers: [
+            /*
           SliverAppBar(
             backgroundColor: AppColors.scaffoldBackground,
             leading: Container(
@@ -77,7 +76,7 @@ class AppScaffold extends StatelessWidget {
             centerTitle: true,
             actions: [
               */
-/*TextButton(
+            /*TextButton(
                 child:  Text("En",
                   style: Theme.of(context).textTheme.bodySmall!.copyWith(
                     fontWeight: FontWeight.bold,
@@ -87,7 +86,8 @@ class AppScaffold extends StatelessWidget {
                 onPressed: () {
 
                 },
-              ),*//*
+              ),*/
+            /*
 
               InkWell(
                 customBorder: CircleBorder(),
@@ -101,20 +101,20 @@ class AppScaffold extends StatelessWidget {
 
           ),
 */
-          SliverFillRemaining(child: body),
-          // if (sidebar != null) SliverToBoxAdapter(child: sidebar!),
-        ],
-      )),
+            SliverFillRemaining(child: body),
+            // if (sidebar != null) SliverToBoxAdapter(child: sidebar!),
+          ],
+        ),
+      ),
       bottomNavigationBar: bottomNavigationBar,
       bottomSheet: bottomSheet,
-      drawer: drawer,
+      drawer: showAppDrawer ? AppDrawer() : drawer,
       endDrawer: endDrawer,
       floatingActionButton: floatingActionButton,
       resizeToAvoidBottomInset: resizeToAvoidBottomInset,
       floatingActionButtonLocation:
-      floatingActionButtonLocation ?? FloatingActionButtonLocation.centerDocked,
+          floatingActionButtonLocation ??
+          FloatingActionButtonLocation.centerDocked,
     );
-
-
   }
 }

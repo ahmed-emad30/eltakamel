@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart' show Colors;
-import 'package:fluttertoast/fluttertoast.dart' show Fluttertoast, Toast, ToastGravity;
+import 'package:fluttertoast/fluttertoast.dart'
+    show Fluttertoast, Toast, ToastGravity;
 
 toast(String message) {
   Fluttertoast.showToast(
@@ -9,6 +10,6 @@ toast(String message) {
     timeInSecForIosWeb: 1,
     backgroundColor: Colors.red,
     textColor: Colors.white,
-    fontSize: 16.0
+    fontSize: 16.0,
   );
 }

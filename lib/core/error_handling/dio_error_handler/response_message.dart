@@ -10,7 +10,8 @@ sealed class ResponseMessage {
 }
 
 sealed class ErrorStrings {
-  static const String badRequestError = 'Oops! Something went wrong. Please try again later';
+  static const String badRequestError =
+      'Oops! Something went wrong. Please try again later';
   static const String timeoutError = 'Connection timed out. Try again';
   static const String defaultError = 'Something went wrong. Try again';
 }

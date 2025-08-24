@@ -1,10 +1,14 @@
 import 'package:dio/dio.dart';
 import 'package:internet_connection_checker_plus/internet_connection_checker_plus.dart';
 import 'package:eltakamel/core/helpers/helper_functions/network_status.dart';
-import 'package:eltakamel/core/api/api_request_helpers/api_consumer.dart';
+
 import 'package:eltakamel/core/api/api_request_helpers/dio_consumer.dart';
 import 'package:get_it/get_it.dart';
 import 'package:eltakamel/features/shared/presentation/shared_screen/logic/shared_cubit.dart';
+import 'package:eltakamel/features/packages/data/data_source/packages_remote_data_source.dart';
+import 'package:eltakamel/features/packages/data/repository/packages_repository_imp.dart';
+import 'package:eltakamel/features/packages/domain/repository/packages_repository.dart';
+import 'package:eltakamel/features/packages/presentation/packages_screen/logic/packages_cubit.dart';
 
 final sl = GetIt.instance;
 
@@ -14,6 +18,7 @@ class ServiceLocator {
     // sl.registerFactory<GlobalCubit>(() => GlobalCubit());
 
     _setupMeasurementsFeature();
+    _setupPackagesFeature();
 
     /// Core
     sl.registerLazySingleton<NetworkStatus>(
@@ -58,5 +63,19 @@ class ServiceLocator {
     // sl.registerLazySingleton<HomeRemoteDataSource>(
     //   () => HomeRemoteDataSourceImp(sl<ApiConsumer>()),
     // );
+  }
+
+  static void _setupPackagesFeature() {
+    /// Packages Feature
+    // Cubit
+    sl.registerFactory<PackagesCubit>(() => PackagesCubit(repository: sl<PackagesRepository>()));
+
+    // Repository
+    sl.registerLazySingleton<PackagesRepository>(() => PackagesRepositoryImp(remoteDataSource: sl<PackagesRemoteDataSource>()));
+
+    // Data Sources
+    sl.registerLazySingleton<PackagesRemoteDataSource>(
+      () => PackagesRemoteDataSourceImp(dioConsumer: sl<DioConsumer>()),
+    );
   }
 }

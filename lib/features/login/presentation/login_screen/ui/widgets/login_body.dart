@@ -8,7 +8,8 @@ import 'package:flutter_bloc/flutter_bloc.dart'
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 
-import '../../../../../../core/helpers/pop_ups/toasts/app_toast.dart' show AppToast;
+import '../../../../../../core/helpers/pop_ups/toasts/app_toast.dart'
+    show AppToast;
 import '../../../../../../core/helpers/validations/app_form_validations.dart'
     show AppFormValidations;
 
@@ -157,9 +158,8 @@ class LoginForm extends StatelessWidget {
         listener: (BuildContext context, LoginState state) {
           if (state is LoginSuccessState) {
             context.replace(Routes.homeScreen);
-          }
-          else if(state is LoginErrorState){
-            AppToast.showToast(message: state.message,color: AppColors.black,);
+          } else if (state is LoginErrorState) {
+            AppToast.showToast(message: state.message, color: AppColors.black);
           }
         },
       ),

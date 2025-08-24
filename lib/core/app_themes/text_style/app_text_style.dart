@@ -12,22 +12,32 @@ sealed class AppTextStyle {
     );
   }
 
-  static TextStyle get style230ExtraBold => _textStyle(230, FontWeightHelper.extraBold);
-  static TextStyle get style154ExtraBold => _textStyle(154, FontWeightHelper.extraBold);
-  static TextStyle get style128ExtraBold => _textStyle(128, FontWeightHelper.extraBold);
-  static TextStyle get style96ExtraBold => _textStyle(96, FontWeightHelper.extraBold);
-  static TextStyle get style48ExtraBold => _textStyle(48, FontWeightHelper.extraBold);
-  static TextStyle get style40ExtraBold => _textStyle(40, FontWeightHelper.extraBold);
-  static TextStyle get style16ExtraBold => _textStyle(16, FontWeightHelper.extraBold);
+  static TextStyle get style230ExtraBold =>
+      _textStyle(230, FontWeightHelper.extraBold);
+  static TextStyle get style154ExtraBold =>
+      _textStyle(154, FontWeightHelper.extraBold);
+  static TextStyle get style128ExtraBold =>
+      _textStyle(128, FontWeightHelper.extraBold);
+  static TextStyle get style96ExtraBold =>
+      _textStyle(96, FontWeightHelper.extraBold);
+  static TextStyle get style48ExtraBold =>
+      _textStyle(48, FontWeightHelper.extraBold);
+  static TextStyle get style40ExtraBold =>
+      _textStyle(40, FontWeightHelper.extraBold);
+  static TextStyle get style16ExtraBold =>
+      _textStyle(16, FontWeightHelper.extraBold);
   static TextStyle get style36Bold => _textStyle(36, FontWeightHelper.bold);
   static TextStyle get style32Bold => _textStyle(32, FontWeightHelper.bold);
-  static TextStyle get style32Regular => _textStyle(32, FontWeightHelper.regular);
-  static TextStyle get style24Regular => _textStyle(24, FontWeightHelper.regular);
-  static TextStyle get style16Regular => _textStyle(16, FontWeightHelper.regular);
-  static TextStyle get style13Regular => _textStyle(13, FontWeightHelper.regular);
+  static TextStyle get style32Regular =>
+      _textStyle(32, FontWeightHelper.regular);
+  static TextStyle get style24Regular =>
+      _textStyle(24, FontWeightHelper.regular);
+  static TextStyle get style16Regular =>
+      _textStyle(16, FontWeightHelper.regular);
+  static TextStyle get style13Regular =>
+      _textStyle(13, FontWeightHelper.regular);
   static TextStyle get style15Medium => _textStyle(15, FontWeightHelper.medium);
   static TextStyle get style10Medium => _textStyle(10, FontWeightHelper.medium);
   static TextStyle get style16Medium => _textStyle(16, FontWeightHelper.medium);
   static TextStyle get style24Medium => _textStyle(24, FontWeightHelper.medium);
-
 }

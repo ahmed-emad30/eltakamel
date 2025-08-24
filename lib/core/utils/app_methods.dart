@@ -15,12 +15,13 @@ import 'package:safe_device/safe_device.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 sealed class AppMethods {
-  static test(Function loading,Function action)async{
+  static test(Function loading, Function action) async {
     loading();
 
     await Future.delayed(Duration(milliseconds: 800));
     action();
   }
+
   /// todo; use global key context
   static Future<void> appLaunchUrl(
     BuildContext context, {
@@ -50,7 +51,7 @@ sealed class AppMethods {
       'en',
     ).format(dateTime); // Keep English numbers
 
-/*    // Replace AM/PM with Arabic only if locale is Arabic
+    /*    // Replace AM/PM with Arabic only if locale is Arabic
     if (context.isArabic) {
       formattedTime = formattedTime.replaceAll('AM', 'ص').replaceAll('PM', 'م');
     }*/
@@ -87,7 +88,7 @@ sealed class AppMethods {
 
     // Format the date based on the locale
     if (false) {
-    // if (context.isArabic) {
+      // if (context.isArabic) {
       // Format the date in Arabic
       final DateFormat arabicFormat = DateFormat('EEEE d MMMM', 'ar');
       final String arabicDate = arabicFormat.format(date);
@@ -119,7 +120,7 @@ sealed class AppMethods {
 
     // Format the date based on the locale
     if (false) {
-    // if (context.isArabic) {
+      // if (context.isArabic) {
       // Format the date in Arabic
       final DateFormat arabicFormat = DateFormat('EEEE d MMMM', 'ar');
       final String arabicDate = arabicFormat.format(date);
@@ -187,7 +188,8 @@ sealed class AppMethods {
   static Future<void> copyClipboard(String response) async {
     await Clipboard.setData(ClipboardData(text: response));
   }
-  static Paint textStroke({required Color color,  double strokeWidth=2}) {
+
+  static Paint textStroke({required Color color, double strokeWidth = 2}) {
     return Paint()
       ..color = color
       ..style = PaintingStyle.stroke

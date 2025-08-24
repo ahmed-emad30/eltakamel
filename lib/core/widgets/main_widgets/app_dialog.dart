@@ -24,15 +24,10 @@ class AppDialog extends StatelessWidget {
           borderRadius: borderRadius ?? BorderRadius.circular(4),
         ),
         child: Padding(
-          padding: padding ??
-              const EdgeInsets.symmetric(
-                horizontal: 24,
-                vertical: 16,
-              ),
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: children,
-          ),
+          padding:
+              padding ??
+              const EdgeInsets.symmetric(horizontal: 24, vertical: 16),
+          child: Column(mainAxisSize: MainAxisSize.min, children: children),
         ),
       ),
     );

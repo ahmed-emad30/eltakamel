@@ -12,7 +12,8 @@ import 'package:flutter/material.dart'
 
 import 'package:go_router/go_router.dart' show GoRouter, GoRouterHelper;
 
-import '../../features/shared/domain/entity/navigator_item_entity.dart' show NavigatorItemEntity;
+import '../../features/shared/domain/entity/navigator_item_entity.dart'
+    show NavigatorItemEntity;
 import '../app_themes/colors/app_colors.dart' show AppColors;
 import '../app_themes/text_style/app_text_style.dart' show AppTextStyle;
 import 'active_line.dart' show ActiveLine;
@@ -24,7 +25,8 @@ class AppNavigatorItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final isActive = GoRouter.of(context).state.fullPath?.contains(item.route)??false;
+    final isActive =
+        GoRouter.of(context).state.fullPath?.contains(item.route) ?? false;
     return GestureDetector(
       onTap: () {
         if (!isActive) {

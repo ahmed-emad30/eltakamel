@@ -6,8 +6,6 @@ import 'package:eltakamel/features/splash/presentation/splash_screen/logic/splas
 import 'package:eltakamel/features/splash/presentation/splash_screen/ui/widgets/splash_body.dart'
     show SplashBody;
 
-
-
 class SplashScreen extends StatelessWidget {
   const SplashScreen({super.key});
 
@@ -19,15 +17,16 @@ class SplashScreen extends StatelessWidget {
           return SplashCubit();
         },
         child: BlocConsumer<SplashCubit, SplashState>(
-          buildWhen: (prev, state) => state is SplashInitialState ,
-          listenWhen: (prev, state) => state is SplashNavigateToNextScreenState ,
-          builder: (context,state) {
+          buildWhen: (prev, state) => state is SplashInitialState,
+          listenWhen: (prev, state) => state is SplashNavigateToNextScreenState,
+          builder: (context, state) {
             return const SplashBody();
-          }, listener: (BuildContext context, state) {
+          },
+          listener: (BuildContext context, state) {
             if (state is SplashNavigateToNextScreenState) {
               context.replace(Routes.loginScreen);
             }
-        },
+          },
         ),
       ),
     );

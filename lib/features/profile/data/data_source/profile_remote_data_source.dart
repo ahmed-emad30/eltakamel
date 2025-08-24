@@ -1,3 +1,3 @@
 abstract class ProfileRemoteDataSource {}
 
-class ProfileRemoteDataSourceImp implements ProfileRemoteDataSource  {}
+class ProfileRemoteDataSourceImp implements ProfileRemoteDataSource {}

@@ -4,8 +4,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 part 'splash_state.dart';
 
 class SplashCubit extends Cubit<SplashState> {
-  SplashCubit() : super(const SplashInitialState())  {
-     init();
+  SplashCubit() : super(const SplashInitialState()) {
+    init();
   }
 
   Future<void> init() async {
@@ -13,10 +13,7 @@ class SplashCubit extends Cubit<SplashState> {
   }
 
   Future<void> animateLogo() async {
-    await Future.delayed(
-      const Duration(seconds: 1),
-
-    );
+    await Future.delayed(const Duration(seconds: 1));
     if (!isClosed) {
       navigateToNextScreen();
     }
@@ -25,6 +22,7 @@ class SplashCubit extends Cubit<SplashState> {
   void navigateToNextScreen() {
     emit(const SplashNavigateToNextScreenState());
   }
+
   @override
   Future<void> close() {
     // navigateToNextScreen();

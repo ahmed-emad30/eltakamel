@@ -41,8 +41,9 @@ class AppHeaderTitle extends StatelessWidget {
             child: AppSvgImage(path: svgIconPath ?? ''),
           ),
         ),
-        AppText(title,
-            // style: textStyle ?? AppTextStyle.style14SemiBold
+        AppText(
+          title,
+          // style: textStyle ?? AppTextStyle.style14SemiBold
         ),
       ],
     );

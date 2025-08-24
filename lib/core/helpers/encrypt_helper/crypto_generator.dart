@@ -2,7 +2,6 @@ import 'dart:convert';
 import 'dart:math' show Random;
 import 'dart:typed_data';
 
-
 sealed class CryptoGenerator {
   static void generateKeyAndIv() {
     // Generate 256-bit (32-byte) key for AES-256
@@ -17,8 +16,8 @@ sealed class CryptoGenerator {
       iv[i] = random.nextInt(256);
     }
 
-      print('Generated Key (base64): ${base64Encode(key)}');
-      print('Generated IV (base64): ${base64Encode(iv)}');
+    print('Generated Key (base64): ${base64Encode(key)}');
+    print('Generated IV (base64): ${base64Encode(iv)}');
   }
 }
 

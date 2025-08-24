@@ -2,10 +2,10 @@ class LoginFormEntity {
   final String userName;
   final String password;
   final String language;
-  LoginFormEntity( {
+  LoginFormEntity({
     required this.userName,
     required this.password,
-     this.language = 'ar'
+    this.language = 'ar',
   });
 
   LoginFormEntity copyWith({
@@ -19,10 +19,9 @@ class LoginFormEntity {
       language: language ?? this.language,
     );
   }
+
   @override
   String toString() {
-
     return 'name: ${userName} password: ${password} language: ${language}';
   }
-
 }

@@ -2,15 +2,17 @@
 
 // ignore_for_file: constant_identifier_names
 
-abstract class  LocaleKeys {
-  static const _____________________Validation_____________________ = '_____________________Validation_____________________';
+abstract class LocaleKeys {
+  static const _____________________Validation_____________________ =
+      '_____________________Validation_____________________';
   static const pleaseLoginToContinue = 'pleaseLoginToContinue';
   static const usernameIsRequired = 'usernameIsRequired';
   static const userNameMustBe316Character = 'userNameMustBe316Character';
   static const emailIsRequired = 'emailIsRequired';
   static const enterValidEmail = 'enterValidEmail';
   static const passwordIsRequired = 'passwordIsRequired';
-  static const passwordMustBeAtLeast8Characters = 'passwordMustBeAtLeast8Characters';
+  static const passwordMustBeAtLeast8Characters =
+      'passwordMustBeAtLeast8Characters';
   static const confirmPasswordMustMatch = 'confirmPasswordMustMatch';
   static const passwordMustContainLetters = 'passwordMustContainLetters';
   static const passwordMustContainNumbers = 'passwordMustContainNumbers';
@@ -37,7 +39,8 @@ abstract class  LocaleKeys {
   static const welcomeBack = 'welcomeBack';
   static const todaySummary = 'todaySummary';
   static const stayStrongStayFocused = 'stayStrongStayFocused';
-  static const everyRepEveryMealEveryStepCountsKeepPushingForward = 'everyRepEveryMealEveryStepCountsKeepPushingForward';
+  static const everyRepEveryMealEveryStepCountsKeepPushingForward =
+      'everyRepEveryMealEveryStepCountsKeepPushingForward';
   static const login = 'login';
   static const welcomeLogin = 'welcomeLogin';
   static const loginToGetStarted = 'loginToGetStarted';
@@ -51,10 +54,13 @@ abstract class  LocaleKeys {
   static const reset = 'reset';
   static const newPasswordTextFieldHeader = 'newPasswordTextFieldHeader';
   static const newPasswordTextFieldHint = 'newPasswordTextFieldHint';
-  static const confirmNewPasswordTextFieldHeader = 'confirmNewPasswordTextFieldHeader';
-  static const confirmNewPasswordTextFieldHint = 'confirmNewPasswordTextFieldHint';
+  static const confirmNewPasswordTextFieldHeader =
+      'confirmNewPasswordTextFieldHeader';
+  static const confirmNewPasswordTextFieldHint =
+      'confirmNewPasswordTextFieldHint';
   static const confirm = 'confirm';
-  static const confirmPasswordTextFieldHeader = 'confirmPasswordTextFieldHeader';
+  static const confirmPasswordTextFieldHeader =
+      'confirmPasswordTextFieldHeader';
   static const confirmPasswordTextFieldHint = 'confirmPasswordTextFieldHint';
   static const reSendOtpTimerWithArg = 'reSendOtpTimerWithArg';
   static const reSendOtp = 'reSendOtp';
@@ -83,7 +89,8 @@ abstract class  LocaleKeys {
   static const areYouSureYouWantToLogout = 'areYouSureYouWantToLogout';
   static const noStayLoggedIn = 'noStayLoggedIn';
   static const yesLogout = 'yesLogout';
-  static const areYouSureYouWantToDeleteYouAccount = 'areYouSureYouWantToDeleteYouAccount';
+  static const areYouSureYouWantToDeleteYouAccount =
+      'areYouSureYouWantToDeleteYouAccount';
   static const noDontDeleteAccount = 'noDontDeleteAccount';
   static const yesDelete = 'yesDelete';
   static const changeLanguage = 'changeLanguage';
@@ -129,7 +136,8 @@ abstract class  LocaleKeys {
   static const goToHome = 'goToHome';
   static const notifications = 'notifications';
   static const nothingToDisplayHere = 'nothingToDisplayHere';
-  static const youWillNotifiedOnceYouHaveNewNotifications = 'youWillNotifiedOnceYouHaveNewNotifications';
+  static const youWillNotifiedOnceYouHaveNewNotifications =
+      'youWillNotifiedOnceYouHaveNewNotifications';
   static const markAsRead = 'markAsRead';
   static const trainLikeABeast = 'trainLikeABeast';
   static const feelLikeAChampion = 'feelLikeAChampion';
@@ -140,5 +148,4 @@ abstract class  LocaleKeys {
   static const existingAccount = 'existingAccount';
   static const enterCodeNumber = 'enterCodeNumber';
   static const passwordChangedSuccessfully = 'passwordChangedSuccessfully';
-
 }

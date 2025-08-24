@@ -27,12 +27,8 @@ class AppSvgImage extends StatelessWidget {
       width: size?.sp ?? width,
       height: size?.sp ?? height,
       fit: fit,
-      colorFilter: color != null
-          ? ColorFilter.mode(
-        color!,
-        BlendMode.srcIn,
-      )
-          : null,
+      colorFilter:
+          color != null ? ColorFilter.mode(color!, BlendMode.srcIn) : null,
     );
   }
 }

@@ -6,7 +6,7 @@ sealed class ProfileState extends Equatable {
 
 final class ProfileInitialState extends ProfileState {
   const ProfileInitialState();
-  
+
   @override
   List<Object> get props => [];
 }

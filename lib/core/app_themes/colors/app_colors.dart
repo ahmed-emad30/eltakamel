@@ -9,7 +9,6 @@ sealed class AppColors {
   static const Color lightBlue = Color(0xff20a8d8);
   static const Color darkBlue = Color(0xff007ad9);
 
-
   /// Global App color
   static const Color blueGreyOpacity15 = Color(0x26607D8B);
   static const Color blueGreyOpacity2 = Color(0x33607D8B);
@@ -20,7 +19,6 @@ sealed class AppColors {
   static const Color offWhite = Color(0xffdddddd);
   static const Color black = Color(0xFF000000);
   static const Color transparent = Colors.transparent;
-
 
   /// Global Widget UI Colors
   static const Color scaffoldBackground = white;
@@ -67,7 +65,6 @@ sealed class AppColors {
 
   /// Success
   static const Color success = green;
-
 
   //Dark Theme
   static const Color darkPrimary = Color(0xffDEAC16);

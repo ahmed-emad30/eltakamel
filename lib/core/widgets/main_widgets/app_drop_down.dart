@@ -40,9 +40,8 @@ class AppDropDown<T> extends StatelessWidget {
         color: AppColors.zn800,
         borderRadius: BorderRadius.circular(AppConstants.borderRadius),
         constraints: const BoxConstraints(maxWidth: 155, minWidth: 155),
-        shape:  RoundedRectangleBorder(
+        shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(AppConstants.borderRadius),
-
         ),
         itemBuilder: (BuildContext context) => items,
         onSelected: onSelected,

@@ -1,3 +1,3 @@
 abstract class SplashRemoteDataSource {}
 
-class SplashRemoteDataSourceImp implements SplashRemoteDataSource  {}
+class SplashRemoteDataSourceImp implements SplashRemoteDataSource {}

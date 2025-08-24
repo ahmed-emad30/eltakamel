@@ -5,8 +5,6 @@ import 'package:google_fonts/google_fonts.dart';
 
 import '../../../gen/fonts.gen.dart' show FontFamily;
 
-
-
 sealed class AppLightThemes {
   static ThemeData call() {
     return ThemeData(
@@ -14,22 +12,15 @@ sealed class AppLightThemes {
       scaffoldBackgroundColor: AppColors.scaffoldBackground,
       fontFamily: GoogleFonts.openSans().fontFamily,
       // fontFamily: FontFamily.poppins,
-      fontFamilyFallback: [
-        'Cairo',
-      ],
+      fontFamilyFallback: ['Cairo'],
       appBarTheme: const AppBarTheme(
         iconTheme: IconThemeData(color: AppColors.white),
         // color: AppColors.appbarBackground,
         // actionsIconTheme: IconThemeData(color: Colors.white),
       ),
-      drawerTheme: DrawerThemeData(
-
-      ),
+      drawerTheme: DrawerThemeData(),
       inputDecorationTheme: InputDecorationTheme(
-
-        contentPadding:REdgeInsets.symmetric(horizontal: 8,vertical: 4),
-
-
+        contentPadding: REdgeInsets.symmetric(horizontal: 8, vertical: 4),
       ),
       colorScheme: const ColorScheme.light(
         brightness: Brightness.light,
@@ -37,34 +28,35 @@ sealed class AppLightThemes {
       ),
       switchTheme: SwitchThemeData(
         thumbIcon: WidgetStateProperty.resolveWith(
-          (states) => states.contains(WidgetState.selected)
-              ? const Icon(
-                  Icons.check,
-                  color: AppColors.mainColor,
-                  size: 20,
-                )
-              : const Icon(
-                  Icons.close,
-                  size: 20,
-                ),
+          (states) =>
+              states.contains(WidgetState.selected)
+                  ? const Icon(
+                    Icons.check,
+                    color: AppColors.mainColor,
+                    size: 20,
+                  )
+                  : const Icon(Icons.close, size: 20),
         ),
         trackColor: WidgetStateProperty.resolveWith(
-          (states) => states.contains(WidgetState.selected)
-              ? AppColors.mainColor
-              : AppColors.white,
+          (states) =>
+              states.contains(WidgetState.selected)
+                  ? AppColors.mainColor
+                  : AppColors.white,
         ),
         thumbColor: WidgetStateProperty.resolveWith(
-          (states) => states.contains(WidgetState.selected)
-              ? AppColors.white
-              : AppColors.mainColor,
+          (states) =>
+              states.contains(WidgetState.selected)
+                  ? AppColors.white
+                  : AppColors.mainColor,
         ),
         trackOutlineColor: WidgetStateProperty.resolveWith(
-          (states) => states.contains(WidgetState.selected) ? null : AppColors.mainColor,
+          (states) =>
+              states.contains(WidgetState.selected)
+                  ? null
+                  : AppColors.mainColor,
         ),
       ),
-      badgeTheme: const BadgeThemeData(
-        backgroundColor: AppColors.red,
-      ),
+      badgeTheme: const BadgeThemeData(backgroundColor: AppColors.red),
       sliderTheme: SliderThemeData(
         trackHeight: 7,
         activeTrackColor: AppColors.mainColor,

@@ -99,25 +99,25 @@ class AppTextField extends StatelessWidget {
         prefixIcon: prefixIcon,
         border: OutlineInputBorder(
           borderSide:
-          needBorder
-              ? BorderSide.none
-              : const BorderSide(color: AppColors.textFieldBorder),
+              needBorder
+                  ? BorderSide.none
+                  : const BorderSide(color: AppColors.textFieldBorder),
 
           borderRadius: AppConstants.textFormBorderRadius,
         ),
 
         enabledBorder: OutlineInputBorder(
           borderSide:
-          needBorder
-              ? const BorderSide(color: AppColors.textFieldBorder)
-              : BorderSide.none,
+              needBorder
+                  ? const BorderSide(color: AppColors.textFieldBorder)
+                  : BorderSide.none,
           borderRadius: AppConstants.textFormBorderRadius,
         ),
         focusedBorder: OutlineInputBorder(
           borderSide:
-          needBorder
-              ? const BorderSide(color: AppColors.textFieldBorder)
-              : BorderSide.none,
+              needBorder
+                  ? const BorderSide(color: AppColors.textFieldBorder)
+                  : BorderSide.none,
 
           borderRadius: AppConstants.textFormBorderRadius,
         ),

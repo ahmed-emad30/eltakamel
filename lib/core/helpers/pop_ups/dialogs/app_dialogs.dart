@@ -45,7 +45,7 @@ sealed class AppDialogs {
               //   height: 160.sp,
               //   width: 160.sp,
               // ),
-               5.verticalSpace,
+              5.verticalSpace,
               AppText(
                 // message ?? LocaleKeys.pleaseLoginToContinue.tr(),
                 '',

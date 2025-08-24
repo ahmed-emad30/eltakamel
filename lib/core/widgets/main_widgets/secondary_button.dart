@@ -55,13 +55,7 @@ class SecondaryButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     if (isExpand) {
-      return Row(
-        children: [
-          Expanded(
-            child: buildElevatedButton(),
-          ),
-        ],
-      );
+      return Row(children: [Expanded(child: buildElevatedButton())]);
     } else {
       return buildElevatedButton();
     }
@@ -71,30 +65,31 @@ class SecondaryButton extends StatelessWidget {
     return ElevatedButton(
       style: buildButtonStyleFrom(),
       onPressed: isLoading ? () {} : onPressed,
-      child: isLoading
-          ? const Center(child: SpinKitThreeBounce(color: AppColors.mainColor, size: 35))
-          : Row(
-              mainAxisSize: MainAxisSize.min,
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                AppText(
-                  text,
-                  // style: textStyle ??
-                  //     AppTextStyle.style18Medium.copyWith(color: textColor ?? AppColors.zn25),
-                ),
-                Visibility(
-                  visible: svgIconPath != null,
-                  child: Row(
-                    children: [
-                      const SizedBox(width: 10),
-                      AppSvgImage(
-                        path: svgIconPath ?? '',
-                      ),
-                    ],
+      child:
+          isLoading
+              ? const Center(
+                child: SpinKitThreeBounce(color: AppColors.mainColor, size: 35),
+              )
+              : Row(
+                mainAxisSize: MainAxisSize.min,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  AppText(
+                    text,
+                    // style: textStyle ??
+                    //     AppTextStyle.style18Medium.copyWith(color: textColor ?? AppColors.zn25),
                   ),
-                ),
-              ],
-            ),
+                  Visibility(
+                    visible: svgIconPath != null,
+                    child: Row(
+                      children: [
+                        const SizedBox(width: 10),
+                        AppSvgImage(path: svgIconPath ?? ''),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
     );
   }
 

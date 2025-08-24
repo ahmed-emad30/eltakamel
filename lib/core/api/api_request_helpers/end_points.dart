@@ -1,5 +1,6 @@
 sealed class EndPoints {
-  static const String baseUrl = 'https://Admin.altkamel.ly/user/api/index.php/api/';
+  static const String baseUrl =
+      'https://Admin.altkamel.ly/user/api/index.php/api/';
   static const String refreshToken = '';
 
   /// AUTH
@@ -32,4 +33,15 @@ sealed class EndPoints {
 
   /// AVAILABLE TRIPS
   static const String availableTrips = '$passengers/reservations';
+  
+
+  /// PACKAGES 
+  static const String packages = '$baseUrl/packages';
+
+  /// SUPPORT 
+  static const String support = 'support';
+
+  /// TICKETS 
+  static const String tickets = 'tickets';
+  
 }

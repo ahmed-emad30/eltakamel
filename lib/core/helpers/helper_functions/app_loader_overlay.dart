@@ -61,12 +61,14 @@ class _LoadingWidget extends StatelessWidget {
         child: GestureDetector(
           onTap: () {},
           child: Center(
-            child: widget ??
+            child:
+                widget ??
                 SizedBox.square(
                   dimension: loadingWidth,
-                  child: gifOrImagePath != null
-                      ? Image.asset(gifOrImagePath!)
-                      : const CircularProgressIndicator(strokeWidth: 3),
+                  child:
+                      gifOrImagePath != null
+                          ? Image.asset(gifOrImagePath!)
+                          : const CircularProgressIndicator(strokeWidth: 3),
                 ),
           ),
         ),

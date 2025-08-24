@@ -10,5 +10,6 @@ class NetworkStatusImp implements NetworkStatus {
   final InternetConnection internetConnection;
 
   @override
-  Future<bool> get isConnected async => await internetConnection.hasInternetAccess;
+  Future<bool> get isConnected async =>
+      await internetConnection.hasInternetAccess;
 }

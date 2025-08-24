@@ -14,12 +14,12 @@ class _SplashBodyState extends State<SplashBody> {
   double opacity = 0.0;
   @override
   void initState() {
-    for(int i = 0; i < 10; i++) {
+    for (int i = 0; i < 10; i++) {
       Future.delayed(Duration(milliseconds: i * 100), () {
-        if(mounted) {
+        if (mounted) {
           setState(() {
-          opacity += 0.1;
-        });
+            opacity += 0.1;
+          });
         }
       });
     }
@@ -28,15 +28,14 @@ class _SplashBodyState extends State<SplashBody> {
 
   @override
   Widget build(BuildContext context) {
-    final logoImage = Assets.images.photos.logo. provider();
+    final logoImage = Assets.images.photos.logo.provider();
 
-    return
-      Center(
-        child: AnimatedOpacity(
-            opacity: opacity,
-            duration: Duration(milliseconds: 500),
-            child: Image(image: logoImage, fit: BoxFit.cover,width: 0.35.sw), ),
-
-      );
+    return Center(
+      child: AnimatedOpacity(
+        opacity: opacity,
+        duration: Duration(milliseconds: 500),
+        child: Image(image: logoImage, fit: BoxFit.cover, width: 0.35.sw),
+      ),
+    );
   }
 }

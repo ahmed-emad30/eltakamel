@@ -17,60 +17,64 @@ class LoginCubit extends Cubit<LoginState> {
 
   static LoginCubit get(context) => BlocProvider.of(context);
   GlobalKey<FormState> formKey = GlobalKey<FormState>();
- LoginFormEntity? loginFormEntity ;
-  List<String>supportedLanguages = [];
+  LoginFormEntity? loginFormEntity;
+  List<String> supportedLanguages = [];
 
-  getLanguages(){}
+  getLanguages() {}
 
-  Future<void> login()async{
+  Future<void> login() async {
     log('login');
     log('${loginFormEntity}');
-    if(!formKey.currentState!.validate() || loginFormEntity == null) {
-      return ;
+    if (!formKey.currentState!.validate() || loginFormEntity == null) {
+      return;
     }
-/*AppMethods.test(
+    /*AppMethods.test(
         (){emit(LoginLoadingState());},
         (){emit(LoginErrorState(message: 'message',));}
 
 );*/
 
     log('loginFormEntity ${loginFormEntity.toString()}');
-    final loginUseCase = LoginUseCase(LoginRepositoryImp(LoginRemoteDataSourceImp()));
- await loginUseCase.call(loginFormEntity: loginFormEntity!).then((value){
-   final token = value;
-   emit(LoginSuccessState());
- }).catchError((error){
-   log('error ${error}');
-   emit(LoginErrorState(message: error));
- });
-
+    final loginUseCase = LoginUseCase(
+      LoginRepositoryImp(LoginRemoteDataSourceImp()),
+    );
+    await loginUseCase
+        .call(loginFormEntity: loginFormEntity!)
+        .then((value) {
+          final token = value;
+          emit(LoginSuccessState());
+        })
+        .catchError((error) {
+          log('error ${error}');
+          emit(LoginErrorState(message: error));
+        });
   }
-  void setUserName(String text){
-    if(loginFormEntity == null)
+
+  void setUserName(String text) {
+    if (loginFormEntity == null)
       loginFormEntity = LoginFormEntity(userName: text, password: '');
     else
-    loginFormEntity = loginFormEntity?.copyWith(email: text);
+      loginFormEntity = loginFormEntity?.copyWith(email: text);
   }
-  void setPassword(String text){
-    if(loginFormEntity == null)
+
+  void setPassword(String text) {
+    if (loginFormEntity == null)
       loginFormEntity = LoginFormEntity(userName: '', password: text);
     else
-    loginFormEntity = loginFormEntity?.copyWith(password: text);
+      loginFormEntity = loginFormEntity?.copyWith(password: text);
   }
-  void setLanguage(String? text){
-    if(text==null)return;
-    final isEnglish = text =="English";
-    final language = isEnglish?"en":"ar";
-    if(loginFormEntity == null)
-      loginFormEntity = LoginFormEntity(userName: '', password: '',language:language );
+
+  void setLanguage(String? text) {
+    if (text == null) return;
+    final isEnglish = text == "English";
+    final language = isEnglish ? "en" : "ar";
+    if (loginFormEntity == null)
+      loginFormEntity = LoginFormEntity(
+        userName: '',
+        password: '',
+        language: language,
+      );
     else
-
-    loginFormEntity = loginFormEntity?.copyWith(language:language );
+      loginFormEntity = loginFormEntity?.copyWith(language: language);
   }
-
-
-
-
-
-
 }

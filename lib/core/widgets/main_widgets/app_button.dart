@@ -62,24 +62,26 @@ class AppButton extends StatelessWidget {
                 disabledBackgroundColor: backgroundColor ?? AppColors.blue,
                 disabledForegroundColor: foregroundColor ?? Colors.white,
                 shape: RoundedRectangleBorder(
-                  borderRadius: borderRadius ?? AppConstants.borderRadiusCircular,
+                  borderRadius:
+                      borderRadius ?? AppConstants.borderRadiusCircular,
                 ),
               ),
               onPressed: isLoading ? () {} : onPressed,
-              child: isLoading
-                  ? const Center(
-                      child: SpinKitThreeBounce(
-                        color: AppColors.white,
-                        size: 35,
+              child:
+                  isLoading
+                      ? const Center(
+                        child: SpinKitThreeBounce(
+                          color: AppColors.white,
+                          size: 35,
+                        ),
+                      )
+                      : AppText(
+                        text,
+                        // style: textStyle ??
+                        //     AppTextStyle.style18SemiBold.copyWith(
+                        //       color: textColor ?? Colors.white,
+                        //     ),
                       ),
-                    )
-                  : AppText(
-                      text,
-                      // style: textStyle ??
-                      //     AppTextStyle.style18SemiBold.copyWith(
-                      //       color: textColor ?? Colors.white,
-                      //     ),
-                    ),
             ),
           ),
         ],
@@ -98,18 +100,16 @@ class AppButton extends StatelessWidget {
           ),
         ),
         onPressed: isLoading ? () {} : onPressed,
-        child: isLoading
-            ? const SpinKitThreeBounce(
-                color: AppColors.white,
-                size: 35,
-              )
-            : AppText(
-                text,
-                // style: textStyle ??
-                //     AppTextStyle.style18SemiBold.copyWith(
-                //       color: textColor ?? Colors.white,
-                //     ),
-              ),
+        child:
+            isLoading
+                ? const SpinKitThreeBounce(color: AppColors.white, size: 35)
+                : AppText(
+                  text,
+                  // style: textStyle ??
+                  //     AppTextStyle.style18SemiBold.copyWith(
+                  //       color: textColor ?? Colors.white,
+                  //     ),
+                ),
       );
     }
   }

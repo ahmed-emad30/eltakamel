@@ -6,10 +6,12 @@ sealed class SplashState extends Equatable {
 
 final class SplashInitialState extends SplashState {
   const SplashInitialState();
-  
+
   @override
   List<Object> get props => [];
-}final class SplashNavigateToNextScreenState extends SplashState {
+}
+
+final class SplashNavigateToNextScreenState extends SplashState {
   const SplashNavigateToNextScreenState();
 
   @override

@@ -42,7 +42,9 @@ class HalfCircleIndicator extends LeafRenderObjectWidget {
 
   @override
   void updateRenderObject(
-      BuildContext context, HalfCircleRenderObject renderObject) {
+    BuildContext context,
+    HalfCircleRenderObject renderObject,
+  ) {
     renderObject
       ..percent = percent
       ..activeColor = activeColor
@@ -89,10 +91,7 @@ class HalfCircleRenderObject extends RenderBox {
   @override
   void paint(PaintingContext context, Offset offset) {
     final canvas = context.canvas;
-    final center = offset + Offset(
-      (size.width) / 2,
-      (size.height - 60),
-    );
+    final center = offset + Offset((size.width) / 2, (size.height - 60));
     final radius = size.width / 2;
 
     // Arc parameters: start at 0.9π and sweep 1.2π (216°)
@@ -100,11 +99,12 @@ class HalfCircleRenderObject extends RenderBox {
     final sweepAngle = 1.3 * math.pi;
 
     // Draw the inactive (background) arc.
-    final backgroundPaint = Paint()
-      ..color = inactiveColor
-      ..style = PaintingStyle.stroke
-      ..strokeWidth = lineThickness
-      ..strokeCap = StrokeCap.round;
+    final backgroundPaint =
+        Paint()
+          ..color = inactiveColor
+          ..style = PaintingStyle.stroke
+          ..strokeWidth = lineThickness
+          ..strokeCap = StrokeCap.round;
 
     canvas.drawArc(
       Rect.fromCircle(center: center, radius: radius),
@@ -115,11 +115,12 @@ class HalfCircleRenderObject extends RenderBox {
     );
 
     // Draw the active (progress) arc.
-    final progressPaint = Paint()
-      ..color = activeColor
-      ..style = PaintingStyle.stroke
-      ..strokeWidth = lineThickness
-      ..strokeCap = StrokeCap.round;
+    final progressPaint =
+        Paint()
+          ..color = activeColor
+          ..style = PaintingStyle.stroke
+          ..strokeWidth = lineThickness
+          ..strokeCap = StrokeCap.round;
 
     canvas.drawArc(
       Rect.fromCircle(center: center, radius: radius),

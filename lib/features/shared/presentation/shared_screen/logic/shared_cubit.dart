@@ -7,10 +7,7 @@ part 'shared_state.dart';
 
 class SharedCubit extends Cubit<SharedState> {
   SharedCubit() : super(const SharedInitialState());
-void changeIndex(int index) {
+  void changeIndex(int index) {
     emit(ChangeIndexState(index));
-
   }
-
-
 }

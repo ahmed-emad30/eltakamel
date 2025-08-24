@@ -11,7 +11,7 @@ class AppPopIcon extends StatelessWidget {
     return IconButton(
       onPressed: () => context.pop(),
       icon: Transform.rotate(
-        angle: /*context.isArabic*/false ? 3.14 : 0,
+        angle: /*context.isArabic*/ false ? 3.14 : 0,
         child: const AppSvgImage(path: AppAsset.arrowBackIcon),
       ),
     );

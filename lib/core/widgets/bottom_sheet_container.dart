@@ -47,8 +47,8 @@ class BottomSheetContainer extends StatelessWidget {
 
   BoxDecoration buildBoxDecoration() {
     return BoxDecoration(
-          color: color ?? AppColors.zn300,
-          borderRadius: borderRadius ?? BorderRadius.circular(40),
-        );
+      color: color ?? AppColors.zn300,
+      borderRadius: borderRadius ?? BorderRadius.circular(40),
+    );
   }
 }

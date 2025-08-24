@@ -29,7 +29,9 @@ extension DioErrorExtension on DioException {
           stacktrace: stacktrace,
         );
       case DioExceptionType.badResponse:
-        if (response != null && response?.statusCode != null && response?.statusMessage != null) {
+        if (response != null &&
+            response?.statusCode != null &&
+            response?.statusMessage != null) {
           return ServerFailure<T>(
             statusCode: response?.statusCode ?? 0,
             error: response?.data['message'] ?? '',

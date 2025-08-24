@@ -1,5 +1,5 @@
 import 'package:equatable/equatable.dart';
-  import 'package:eltakamel/core/error_handling/failures/failure.dart';
+import 'package:eltakamel/core/error_handling/failures/failure.dart';
 
 class GlobalResponse<T> extends Equatable {
   final String? status;

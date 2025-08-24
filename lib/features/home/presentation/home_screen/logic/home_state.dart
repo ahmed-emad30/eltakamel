@@ -6,7 +6,7 @@ sealed class HomeState extends Equatable {
 
 final class HomeInitialState extends HomeState {
   const HomeInitialState();
-  
+
   @override
   List<Object> get props => [];
 }

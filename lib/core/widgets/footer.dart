@@ -23,26 +23,23 @@ class Footer extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children:
-        AppConstants.items.asMap().entries.map((entry) {
-          final i = entry.key;
-          final item = entry.value;
-          final isSelected = index == i;
-          return IconButton(
-            icon: Icon(
-              isSelected ? item.selectedIcon : item.unSelectedIcon,
-              size: 25.sp,
-              color:
-              isSelected
-                  ? AppColors.primary
-                  : AppColors.lightGreyColor,
-            ),
-            onPressed: () {
-              context.go(item.route);
-              sl<SharedCubit>().changeIndex(i);
-
-            },
-          );
-        }).toList(),
+            AppConstants.items.asMap().entries.map((entry) {
+              final i = entry.key;
+              final item = entry.value;
+              final isSelected = index == i;
+              return IconButton(
+                icon: Icon(
+                  isSelected ? item.selectedIcon : item.unSelectedIcon,
+                  size: 25.sp,
+                  color:
+                      isSelected ? AppColors.primary : AppColors.lightGreyColor,
+                ),
+                onPressed: () {
+                  context.go(item.route);
+                  sl<SharedCubit>().changeIndex(i);
+                },
+              );
+            }).toList(),
       ),
     );
   }

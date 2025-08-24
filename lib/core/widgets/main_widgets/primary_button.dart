@@ -55,13 +55,7 @@ class PrimaryButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     if (isExpand) {
-      return Row(
-        children: [
-          Expanded(
-            child: buildElevatedButton(),
-          ),
-        ],
-      );
+      return Row(children: [Expanded(child: buildElevatedButton())]);
     } else {
       return buildElevatedButton();
     }
@@ -71,31 +65,26 @@ class PrimaryButton extends StatelessWidget {
     return ElevatedButton(
       style: buildButtonStyleFrom(),
       onPressed: isLoading ? () {} : onPressed,
-      child: isLoading
-          ? const Center(
-              child: SpinKitThreeBounce(
-                color: AppColors.primary,
-                size: 35,
-              ),
-            )
-          : Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                AppText(
-                  text,
-                  // style: textStyle ??
-                  //     AppTextStyle.style18Medium.copyWith(
-                  //       color: textColor ?? Colors.black,
-                  //     ),
-                ),
-                const HorizontalSpace(8),
-                if (svgIconPath != null)
-                  AppSvgImage(
-                    color: AppColors.white,
-                    path: svgIconPath!,
+      child:
+          isLoading
+              ? const Center(
+                child: SpinKitThreeBounce(color: AppColors.primary, size: 35),
+              )
+              : Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  AppText(
+                    text,
+                    // style: textStyle ??
+                    //     AppTextStyle.style18Medium.copyWith(
+                    //       color: textColor ?? Colors.black,
+                    //     ),
                   ),
-              ],
-            ),
+                  const HorizontalSpace(8),
+                  if (svgIconPath != null)
+                    AppSvgImage(color: AppColors.white, path: svgIconPath!),
+                ],
+              ),
     );
   }
 

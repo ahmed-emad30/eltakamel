@@ -1,3 +1,3 @@
 abstract class SharedRemoteDataSource {}
 
-class SharedRemoteDataSourceImp implements SharedRemoteDataSource  {}
+class SharedRemoteDataSourceImp implements SharedRemoteDataSource {}
