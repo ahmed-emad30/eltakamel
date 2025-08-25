@@ -1,9 +1,15 @@
 import 'package:eltakamel/features/billing/presentation/billing_screen/ui/widgets/billing_body.dart';
+import 'package:eltakamel/features/home/presentation/home_screen/ui/widgets/drawer_item.dart'
+    show DrawerItem;
+import 'package:eltakamel/features/home/presentation/home_screen/ui/widgets/expansion_drawer_item.dart'
+    show ExpansionDrawerItem;
 import 'package:eltakamel/features/home/presentation/home_screen/ui/widgets/home_body.dart'
     show HomeBody;
+import 'package:flutter/cupertino.dart' show CupertinoIcons;
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import '../../../../../core/app_routes/routes_strings.dart' show Routes;
 import '../../../../../core/widgets/main_widgets/app_scaffold.dart' show AppScaffold;
 import '../../../../documents/presentation/documents_screen/ui/widgets/documents_body.dart';
 import '../../../domain/entity/drawer_entity.dart';
@@ -62,9 +68,6 @@ class _HomeScreenState extends State<HomeScreen> {
                     DrawerItem(item: DrawerEntity(title: 'Packages', icon:Icons.all_inbox , page: Routes.homeScreen),) ,
                     DrawerItem(item: DrawerEntity(title: 'Support', icon: Icons.support, page:Routes.homeScreen ),) ,
                     DrawerItem(item: DrawerEntity(title: 'Documents', icon: Icons.description, page: Routes.homeScreen),) ,
-
-
-
                   ],
                 ),
               ),
