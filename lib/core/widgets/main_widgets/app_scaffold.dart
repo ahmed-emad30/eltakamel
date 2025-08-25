@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-
-import 'app_drawer.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class AppScaffold extends StatelessWidget {
   final PreferredSizeWidget? appBar;
@@ -16,7 +15,6 @@ class AppScaffold extends StatelessWidget {
   final Color? backgroundColor;
   final bool? resizeToAvoidBottomInset;
   final FloatingActionButtonLocation? floatingActionButtonLocation;
-  final bool showAppDrawer;
 
   const AppScaffold({
     super.key,
@@ -31,21 +29,19 @@ class AppScaffold extends StatelessWidget {
     this.backgroundColor,
     this.resizeToAvoidBottomInset,
     this.floatingActionButtonLocation,
-    this.sidebar,
-    this.appBarTitle,
-    this.showAppDrawer = true,
+    this.sidebar, this.appBarTitle,
   });
 
   @override
   Widget build(BuildContext context) {
+    final logoSize = 30.dm;
     return Scaffold(
       appBar: appBar,
       backgroundColor: backgroundColor,
       body: Padding(
-        padding: padding ?? EdgeInsets.zero,
-        child: CustomScrollView(
-          slivers: [
-            /*
+          padding: padding ?? EdgeInsets.zero, child: CustomScrollView(
+        slivers: [
+/*
           SliverAppBar(
             backgroundColor: AppColors.scaffoldBackground,
             leading: Container(
@@ -76,7 +72,7 @@ class AppScaffold extends StatelessWidget {
             centerTitle: true,
             actions: [
               */
-            /*TextButton(
+/*TextButton(
                 child:  Text("En",
                   style: Theme.of(context).textTheme.bodySmall!.copyWith(
                     fontWeight: FontWeight.bold,
@@ -86,8 +82,7 @@ class AppScaffold extends StatelessWidget {
                 onPressed: () {
 
                 },
-              ),*/
-            /*
+              ),*/ /*
 
               InkWell(
                 customBorder: CircleBorder(),
@@ -101,20 +96,18 @@ class AppScaffold extends StatelessWidget {
 
           ),
 */
-            SliverFillRemaining(child: body),
-            // if (sidebar != null) SliverToBoxAdapter(child: sidebar!),
-          ],
-        ),
-      ),
+          SliverFillRemaining(child: body),
+          // if (sidebar != null) SliverToBoxAdapter(child: sidebar!),
+        ],
+      )),
       bottomNavigationBar: bottomNavigationBar,
       bottomSheet: bottomSheet,
-      drawer: showAppDrawer ? AppDrawer() : drawer,
+      drawer: drawer,
       endDrawer: endDrawer,
       floatingActionButton: floatingActionButton,
       resizeToAvoidBottomInset: resizeToAvoidBottomInset,
       floatingActionButtonLocation:
-          floatingActionButtonLocation ??
-          FloatingActionButtonLocation.centerDocked,
+      floatingActionButtonLocation ?? FloatingActionButtonLocation.centerDocked,
     );
   }
 }

@@ -40,8 +40,8 @@ class _DataUsageScreenState extends State<DataUsageScreen> {
         actionsPadding: REdgeInsetsDirectional.only(end: 8),
               ),
         backgroundColor: Colors.blueGrey.shade50,
-        showAppDrawer: true,
-        body: const DataUsageBody(),
+      // showAppDrawer: true,
+      body: const DataUsageBody(),
     );
   }
 }
