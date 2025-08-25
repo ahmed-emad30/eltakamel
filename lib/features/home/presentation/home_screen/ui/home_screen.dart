@@ -12,6 +12,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../../../core/app_routes/routes_strings.dart' show Routes;
 import '../../../../../core/widgets/main_widgets/app_scaffold.dart' show AppScaffold;
 import '../../../../documents/presentation/documents_screen/ui/widgets/documents_body.dart';
+import '../../../../sessions/presentation/sessions_screen/ui/widgets/sessions_body.dart'
+    show SessionsBody;
 import '../../../domain/entity/drawer_entity.dart';
 int va = 0;
 class HomeScreen extends StatefulWidget {
@@ -68,6 +70,9 @@ class _HomeScreenState extends State<HomeScreen> {
                     DrawerItem(item: DrawerEntity(title: 'Packages', icon:Icons.all_inbox , page: Routes.homeScreen),) ,
                     DrawerItem(item: DrawerEntity(title: 'Support', icon: Icons.support, page:Routes.homeScreen ),) ,
                     DrawerItem(item: DrawerEntity(title: 'Documents', icon: Icons.description, page: Routes.homeScreen),) ,
+
+
+
                   ],
                 ),
               ),
@@ -80,5 +85,6 @@ final screens = [
   HomeBody(),
   BillingBody(),
   DocumentsBody(),
+  SessionsBody(),
 ];
 
