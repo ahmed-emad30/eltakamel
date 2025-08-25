@@ -105,7 +105,7 @@ class _PurchaseScreenState extends State<PurchaseScreen> {
                              ),
                            ),
                            Switch(
-                             activeThumbColor: Colors.white,
+                             // activeThumbColor: Colors.white,
                              activeTrackColor: Colors.blue,
                              inactiveTrackColor: Colors.grey,
                              inactiveThumbColor: Colors.white,
