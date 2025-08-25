@@ -6,10 +6,13 @@ import 'package:eltakamel/core/utils/service_locator.dart';
 import 'core/app/eltakamel_app.dart';
 import 'core/helpers/observers/bloc_observer.dart';
 
-void main() async {
-  Bloc.observer = MyBlocObserver();
-  WidgetsFlutterBinding.ensureInitialized();
-  await PrefHelper.init();
-  await ServiceLocator.init();
+void main() async{
+     Bloc.observer  = MyBlocObserver();
+      WidgetsFlutterBinding.ensureInitialized();
+     await PrefHelper.init();
+     await ServiceLocator.init();
   runApp(const EltakamelApp());
 }
+
+
+
