@@ -1,8 +1,8 @@
 import 'dart:developer';
 
-import 'package:eltakamel/core/utils/app_methods.dart';
 import 'package:eltakamel/features/login/data/data_source/login_remote_data_source.dart';
 import 'package:eltakamel/features/login/data/repository/login_repository_imp.dart';
+import 'package:eltakamel/features/login/domain/use_case/get_languages_use_case.dart';
 import 'package:eltakamel/features/login/domain/use_case/login_use_case.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter/cupertino.dart';
@@ -18,9 +18,14 @@ class LoginCubit extends Cubit<LoginState> {
   static LoginCubit get(context) => BlocProvider.of(context);
   GlobalKey<FormState> formKey = GlobalKey<FormState>();
   LoginFormEntity? loginFormEntity;
-  List<String> supportedLanguages = [];
 
-  getLanguages() {}
+  List<String> supportedLanguages = [];
+  final loginRepo = LoginRepositoryImp(LoginRemoteDataSourceImp());
+
+  getLanguages() async {
+    final getLanguagesUseCase = GetLanguagesUseCase(loginRepo);
+    await getLanguagesUseCase.call();
+  }
 
   Future<void> login() async {
     log('login');
@@ -28,16 +33,14 @@ class LoginCubit extends Cubit<LoginState> {
     if (!formKey.currentState!.validate() || loginFormEntity == null) {
       return;
     }
-    /*AppMethods.test(
+/*AppMethods.test(
         (){emit(LoginLoadingState());},
         (){emit(LoginErrorState(message: 'message',));}
 
 );*/
 
     log('loginFormEntity ${loginFormEntity.toString()}');
-    final loginUseCase = LoginUseCase(
-      LoginRepositoryImp(LoginRemoteDataSourceImp()),
-    );
+    final loginUseCase = LoginUseCase(loginRepo);
     await loginUseCase
         .call(loginFormEntity: loginFormEntity!)
         .then((value) {
@@ -76,5 +79,21 @@ class LoginCubit extends Cubit<LoginState> {
       );
     else
       loginFormEntity = loginFormEntity?.copyWith(language: language);
+  }
+
+  Future<void> forgetPassword() async {
+    log('login');
+    log('${loginFormEntity}');
+    if (!formKey.currentState!.validate() || loginFormEntity == null) {
+      return;
+    }
+  }
+
+  Future<void> getLanguageKeywords() async {
+    log('login');
+    log('${loginFormEntity}');
+    if (!formKey.currentState!.validate() || loginFormEntity == null) {
+      return;
+    }
   }
 }
