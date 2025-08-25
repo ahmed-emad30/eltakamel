@@ -1,14 +1,16 @@
 sealed class EndPoints {
-  static const String baseUrl = 'https://Admin.altkamel.ly/user/api/index.php/api/';
+  static const String baseUrl = 'https://Admin.altkamel.ly/';
+  static const String userUrl = 'user/api/index.php/api/';
+  static const String adminUrl = 'admin/api/index.php/api/';
+
   static const String refreshToken = '';
 
   /// AUTH
-  static const String auth = 'auth/';
+  static const String auth = '${userUrl}auth/';
   static const String login = '${auth}login';
-  static const String forgotPassword = 'forgot-password';
-  static const String sendOtp = '/$forgotPassword/send-otp';
-  static const String verifyOtp = '/$forgotPassword/verify-otp';
-  static const String resetPassword = '/$forgotPassword/reset';
+  static const String forgotPassword = '${auth}restorePassword';
+  static const String languages = '${adminUrl}resources/languages';
+  static const String translations = '${adminUrl}resources/language';
 
   /// HOME
   static const String passengers = 'v1/passengers';
