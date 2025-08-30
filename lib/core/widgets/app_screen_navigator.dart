@@ -1,14 +1,12 @@
+import 'package:eltakamel/core/widgets/main_widgets/app_scaffold.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart'
-    show BuildContext, Colors, StatelessWidget, Widget;
+    show BuildContext, StatelessWidget, Widget;
 import 'package:flutter_bloc/flutter_bloc.dart' show BlocProvider, BlocSelector;
-import 'package:eltakamel/core/widgets/main_widgets/app_scaffold.dart';
 
 import '../../features/shared/presentation/shared_screen/logic/shared_cubit.dart'
     show SharedCubit, SharedState;
-import '../utils/app_constants.dart' show AppConstants;
 import '../utils/service_locator.dart' show sl;
-import 'footer.dart' show Footer;
 
 class AppScreenNavigator extends StatelessWidget {
   const AppScreenNavigator({

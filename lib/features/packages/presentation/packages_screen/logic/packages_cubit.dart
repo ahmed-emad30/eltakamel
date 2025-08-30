@@ -15,6 +15,7 @@ class PackagesCubit extends Cubit<PackagesState> {
       emit(PackagesLoaded(packages: packages));
     } catch (e) {
       emit(PackagesError(message: e.toString()));
+      emit(PackagesEmpty());
     }
   }
 }

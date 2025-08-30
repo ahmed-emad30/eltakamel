@@ -1,9 +1,8 @@
-import 'package:flutter/material.dart';
 import 'package:eltakamel/core/app_themes/colors/app_colors.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-import '../../../gen/fonts.gen.dart' show FontFamily;
 
 sealed class AppLightThemes {
   static ThemeData call() {

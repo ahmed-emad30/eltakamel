@@ -95,6 +95,7 @@ flutter:
     - assets/images/photos/
     - assets/fonts/poppins/
     - assets/fonts/inter/
+    - shorebird.yaml
 
   fonts:
     - family: poppins

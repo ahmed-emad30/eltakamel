@@ -11,6 +11,9 @@ import 'package:eltakamel/features/shared/presentation/shared_screen/logic/share
 import 'package:get_it/get_it.dart';
 import 'package:internet_connection_checker_plus/internet_connection_checker_plus.dart';
 
+import '../../features/login/presentation/login_screen/logic/login_cubit.dart'
+    show LoginCubit;
+
 final sl = GetIt.instance;
 
 class ServiceLocator {
@@ -25,12 +28,9 @@ class ServiceLocator {
     sl.registerLazySingleton<NetworkStatus>(
       () => NetworkStatusImp(sl<InternetConnection>()),
     );
-    sl.registerLazySingleton<BillingCubit>(
-          () => BillingCubit(),
-    );
-    sl.registerLazySingleton<DrawerCubit>(
-          () => DrawerCubit(),
-    );
+    sl.registerLazySingleton<BillingCubit>(() => BillingCubit());
+    sl.registerLazySingleton<LoginCubit>(() => LoginCubit());
+    sl.registerLazySingleton<DrawerCubit>(() => DrawerCubit());
     // sl.registerLazySingleton<ApiConsumer>(() => ApiConsumer());
 
     /// External Packages
@@ -75,10 +75,16 @@ class ServiceLocator {
   static void _setupPackagesFeature() {
     /// Packages Feature
     // Cubit
-    sl.registerFactory<PackagesCubit>(() => PackagesCubit(repository: sl<PackagesRepository>()));
+    sl.registerFactory<PackagesCubit>(
+      () => PackagesCubit(repository: sl<PackagesRepository>()),
+    );
 
     // Repository
-    sl.registerLazySingleton<PackagesRepository>(() => PackagesRepositoryImp(remoteDataSource: sl<PackagesRemoteDataSource>()));
+    sl.registerLazySingleton<PackagesRepository>(
+      () => PackagesRepositoryImp(
+        remoteDataSource: sl<PackagesRemoteDataSource>(),
+      ),
+    );
 
     // Data Sources
     sl.registerLazySingleton<PackagesRemoteDataSource>(

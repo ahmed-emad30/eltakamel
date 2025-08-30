@@ -22,7 +22,6 @@ class BillingCubit extends Cubit<BillingState> {
         'Paid',
       ],
       data: [
-        ['10', '12/12/2024', '30', 'fdghgfh', '14/12/2024', 'yes'],
       ]),
     BillingDataEntity(
       title: 'Payments',

@@ -1,3 +1,4 @@
+import 'dart:convert';
 
 import 'package:dio/dio.dart';
 import 'package:eltakamel/core/api/api_request_helpers/dio_consumer.dart';
@@ -64,7 +65,8 @@ throw 'Failed to login';
     final response = await dioConsumer.get(
       '${EndPoints.translations}/$languageKey',
     );
-    final data = response?.data;
+    final data = jsonDecode(response?.data);
+
     if (data != null && data.containsKey('words')) {
       return TranslationsModel.fromJson(data);
     }

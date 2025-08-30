@@ -1,7 +1,10 @@
 import 'dart:developer' show log;
 import 'dart:io';
+
 import 'package:dio/dio.dart';
 import 'package:eltakamel/core/api/api_request_helpers/end_points.dart';
+
+import '../../utils/app_enums.dart' show Status;
 import '../../widgets/toast.dart';
 
 class DioConsumer {
@@ -183,7 +186,7 @@ class DioConsumer {
     // var status = response.data['status'];
     if ( /*status == 401 || status == 404 ||*/ response.data == Map &&
         response.data['message'] != 'Unauthenticated.') {
-      toast('session expired');
+      toast('session expired', Status.error);
 
       /* SharedPreferences.getInstance().then((value) {
         value.remove('email');
@@ -200,7 +203,8 @@ class DioConsumer {
       toast('Error: Resource not found. The requested data could not be located.\n ${response.data}');
     }*/
     else if ((statusCode ?? 0) >= 500) {
-      toast('Oops! Something went wrong on our end. Please try again later.');
+      toast('Oops! Something went wrong on our end. Please try again later.',
+          Status.error);
 
       final statusCode = response.statusCode;
       final url = response.requestOptions.uri.toString();

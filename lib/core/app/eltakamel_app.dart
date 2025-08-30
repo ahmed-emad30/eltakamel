@@ -1,10 +1,13 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:go_router/go_router.dart';
 import 'package:eltakamel/core/app_routes/app_router.dart';
 import 'package:eltakamel/core/app_routes/routes_strings.dart';
 import 'package:eltakamel/core/widgets/app_screen_navigator.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart' show BlocProvider;
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:go_router/go_router.dart';
 
+import '../../features/login/presentation/login_screen/logic/login_cubit.dart'
+    show LoginCubit;
 import '../../features/login/presentation/login_screen/ui/login_screen.dart';
 import '../../features/splash/presentation/splash_screen/ui/splash_screen.dart'
     show SplashScreen;
@@ -21,42 +24,44 @@ class EltakamelApp extends StatelessWidget {
       minTextAdapt: true,
       splitScreenMode: true,
       builder: (_, child) {
-        return MaterialApp.router(
-          routerConfig: GoRouter(
-            initialLocation: Routes.homeScreen,
-            routes: [
-              GoRoute(
-                path: Routes.splashScreen,
-                builder: (context, state) => const SplashScreen(),
-              ),
-              GoRoute(
-                path: Routes.loginScreen,
-                builder: (context, state) => const LoginScreen(),
-              ),
+        return BlocProvider(
+          create: (context) => LoginCubit(),
+          child: MaterialApp.router(
+            routerConfig: GoRouter(
+              // initialLocation: Routes.homeScreen,
+              routes: [
+                GoRoute(
+                  path: Routes.splashScreen,
+                  builder: (context, state) => const SplashScreen(),
+                ),
+                GoRoute(
+                  path: Routes.loginScreen,
+                  builder: (context, state) => const LoginScreen(),
+                ),
 
-              /*GoRoute(
+                /*GoRoute(
                 path: Routes.homeScreen,
                 builder: (context, state) => const HomeScreen(),
               ),*/
-              ShellRoute(
-                builder: (context, state, child) {
-                  return AppScreenNavigator(
-                    path: state.matchedLocation,
-                    sliver: child,
-                  );
-                },
-                routes: AppRouter.generateRoute,
-              ),
-            ],
-          ),
-          debugShowCheckedModeBanner: false,
-          title: 'Eltakamel',
-          theme: AppLightThemes.call(),
-          themeMode: ThemeMode.dark,
+                ShellRoute(
+                  builder: (context, state, child) {
+                    return AppScreenNavigator(
+                      path: state.matchedLocation,
+                      sliver: child,
+                    );
+                  },
+                  routes: AppRouter.generateRoute,
+                ),
+              ],
+            ),
+            debugShowCheckedModeBanner: false,
+            title: 'Eltakamel',
+            theme: AppLightThemes.call(),
+            themeMode: ThemeMode.dark,
 
-          // initialRoute: Routes.auth,
+            // initialRoute: Routes.auth,
 
-          /*   locale: cubit.locale,
+            /*   locale: cubit.locale,
           supportedLocales: S.delegate.supportedLocales,
           localizationsDelegates: const [
             GlobalMaterialLocalizations.delegate,
@@ -66,6 +71,7 @@ class EltakamelApp extends StatelessWidget {
           ],
           localeResolutionCallback: (locale, supportedLocales) => cubit
               .getLocaleResolutionCallback(locale, supportedLocales),*/
+          ),
         );
       },
     );

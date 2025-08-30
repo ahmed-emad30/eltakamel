@@ -13,6 +13,8 @@ class PackagesInitial extends PackagesState {}
 
 class PackagesLoading extends PackagesState {}
 
+class PackagesEmpty extends PackagesState {}
+
 class PackagesLoaded extends PackagesState {
   final List<PackageEntity> packages;
 

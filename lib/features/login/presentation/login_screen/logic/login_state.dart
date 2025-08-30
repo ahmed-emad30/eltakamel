@@ -27,3 +27,22 @@ final class LoginErrorState extends LoginState {
   @override
   List<Object?> get props => [message];
 }
+
+final class ForgetLoadingState extends LoginState {
+  @override
+  List<Object?> get props => [];
+}
+
+final class ForgetSuccessState extends LoginState {
+  @override
+  List<Object?> get props => [];
+}
+
+final class ForgetErrorState extends LoginState {
+  final String message;
+
+  const ForgetErrorState({required this.message});
+
+  @override
+  List<Object?> get props => [message];
+}

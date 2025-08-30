@@ -1,3 +1,5 @@
+import 'package:eltakamel/core/api/api_request_helpers/dio_consumer.dart';
+import 'package:eltakamel/core/app_routes/routes_strings.dart';
 import 'package:eltakamel/features/home/presentation/home_screen/logic/drawer_cubit/drawer_cubit.dart';
 import 'package:eltakamel/features/home/presentation/home_screen/ui/widgets/drawer_item.dart';
 import 'package:eltakamel/features/home/presentation/home_screen/ui/widgets/expansion_drawer_item.dart';
@@ -5,6 +7,7 @@ import 'package:flutter/cupertino.dart' show CupertinoIcons;
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart' show BlocProvider, BlocSelector;
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:go_router/go_router.dart';
 
 import '../../../../../core/utils/service_locator.dart' show sl;
 import '../../../../../core/widgets/main_widgets/app_scaffold.dart' show AppScaffold;
@@ -40,9 +43,15 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
             shape: ContinuousRectangleBorder(),
             position: PopupMenuPosition.under,
+            onSelected: (value) {
+              context.go(Routes.loginScreen);
+              sl.call<DioConsumer>().clearToken();
+            },
             itemBuilder: (BuildContext context) {
               return [
-                PopupMenuItem(child: Row(
+                PopupMenuItem(
+                    value: 'hh',
+                    child: Row(
                   mainAxisSize: MainAxisSize.min,
                   spacing: 8,
                   children: [

@@ -1,9 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-import '../../features/shared/domain/entity/navigator_item_entity.dart'
-    show NavigatorItemEntity;
-import '../app_routes/routes_strings.dart' show Routes;
 
 /// Apply this on all project
 sealed class AppConstants {
@@ -29,30 +26,4 @@ sealed class AppConstants {
 
   /// App Version
   static const String appVersion = '1.0.0';
-  static final List<NavigatorItemEntity> items = [
-    NavigatorItemEntity(
-      title: 'Home',
-      route: Routes.homeScreen,
-      unSelectedIcon: CupertinoIcons.house,
-      selectedIcon: CupertinoIcons.house_fill,
-    ),
-    NavigatorItemEntity(
-      title: 'services',
-      route: Routes.servicesScreen,
-      unSelectedIcon: CupertinoIcons.cube,
-      selectedIcon: CupertinoIcons.cube_fill,
-    ),
-    NavigatorItemEntity(
-      title: 'All Projects',
-      route: Routes.allProjectsScreen,
-      unSelectedIcon: Icons.work_outline,
-      selectedIcon: Icons.work,
-    ),
-    NavigatorItemEntity(
-      title: 'profile',
-      route: Routes.profileScreen,
-      unSelectedIcon: CupertinoIcons.person,
-      selectedIcon: CupertinoIcons.person_fill,
-    ),
-  ];
 }

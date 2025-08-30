@@ -9,12 +9,12 @@ class LoginFormEntity {
   });
 
   LoginFormEntity copyWith({
-    String? email,
+    String? userName,
     String? password,
     String? language,
   }) {
     return LoginFormEntity(
-      userName: email ?? this.userName,
+      userName: userName ?? this.userName,
       password: password ?? this.password,
       language: language ?? this.language,
     );
