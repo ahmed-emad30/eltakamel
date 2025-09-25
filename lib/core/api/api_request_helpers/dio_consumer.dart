@@ -64,7 +64,6 @@ class DioConsumer {
 
   Future<Response?> post(
     String url, {
-    bool aiModel = false,
 
     Map? headers,
     dynamic body,

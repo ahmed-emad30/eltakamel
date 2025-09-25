@@ -11,9 +11,9 @@ class PackageModel extends PackageEntity {
   factory PackageModel.fromJson(Map<String, dynamic> json) {
     return PackageModel(
       id: json['id'] ?? 0,
-      title: json['title'] ?? '',
+      title: json['name'] ?? '',
       description: json['description'] ?? '',
-      price: json['price'] ?? '',
+      price: '${json['price'] ?? ''}',
     );
   }
 

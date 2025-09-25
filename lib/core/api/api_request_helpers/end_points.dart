@@ -9,35 +9,28 @@ sealed class EndPoints {
   static const String auth = '${userUrl}auth/';
   static const String login = '${auth}login';
   static const String forgotPassword = '${auth}restorePassword';
+  static const String getTokenInfo = '${adminUrl}auth';
   static const String languages = '${adminUrl}resources/languages';
   static const String translations = '${adminUrl}resources/language';
-
-  /// HOME
-  static const String passengers = 'v1/passengers';
-  static const String stations = '$passengers/stations';
-  static const String cities = '$passengers/cities';
-  static const String areas = '$passengers/areas';
-  static const String trip = '$passengers/trips';
-
-  /// RESERVATION
-  static String availableSeats(int tripId) {
-    return '$passengers/trips/$tripId/available-seats';
-  }
-
-  static const String reserveTrip = '$passengers/trips/reserve';
-  static const String payment = '$passengers/trips/reserve';
-  static const String repayment = '$passengers/trips/reservations/make-payment';
-
-  /// ACCOUNT
-  static const String profile = '$passengers/profile';
-  static const String deleteAccount = '$profile/disable-account';
-
-  /// AVAILABLE TRIPS
-  static const String availableTrips = '$passengers/reservations';
-
+  static const String getRemainingDays = '${userUrl}dashboard';
+  static const String invoices = '${userUrl}invoice';
+  static const String changeSubscription = '${userUrl}service';
+  static const String getProfile = '${userUrl}user';
+  static const String getServices = changeSubscription;
+  static const String getSessions = '${userUrl}session';
+  static const String getTraffic = '${userUrl}traffic';
+  static const String redeem = '${userUrl}redeem';
+  static const String activate = '${userUrl}activate';
+  static const String extend = '${userUrl}extend';
+  static const String service = '${userUrl}service';
+  static const String extensions = '${userUrl}extensions';
 
   /// PACKAGES
-  static const String packages = '$baseUrl/packages';
+  static const String packages = '${userUrl}packages';
+  static const String payment = '${userUrl}payment';
+  static const String document = '${userUrl}document';
+  static const String journal = '${userUrl}journal';
+  static const String ticket = '${userUrl}ticket';
 
   /// SUPPORT
   static const String support = 'support';

@@ -3,15 +3,24 @@ import 'package:eltakamel/features/home/presentation/home_screen/ui/widgets/home
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import '../../../../../../core/utils/service_locator.dart' show sl;
+import '../../../../../login/presentation/login_screen/logic/login_cubit.dart'
+    show LoginCubit;
+
 class DocumentsBody extends StatelessWidget {
   const DocumentsBody({super.key});
 
   @override
   Widget build(BuildContext context) {
     final textTheme = Theme.of(context).textTheme;
+    final loginCubit = sl.call<LoginCubit>();
+    final words = loginCubit.translations.words;
     return ListView(
       children: [
-        TitleHeader(textTheme: textTheme, title: 'User Documents'),
+        TitleHeader(
+          textTheme: textTheme,
+          title: words?.usersTabDocuments ?? 'User Documents',
+        ),
         32.verticalSpace,
         Container(
           color: Colors.white,
@@ -41,7 +50,7 @@ class DocumentsBody extends StatelessWidget {
                     children: [
                       Icon(Icons.settings, color: Colors.white),
                       Text(
-                        'Actions',
+                        words?.globalTableActions ?? 'Actions',
                         style: textTheme.bodyMedium!.copyWith(
                           color: Colors.white,
                         ),
@@ -58,13 +67,23 @@ class DocumentsBody extends StatelessWidget {
                             mainAxisSize: MainAxisSize.min,
                             spacing: 8,
 
-                            children: [Icon(Icons.download), Text('Download')],
+                            children: [
+                              Icon(Icons.download),
+                              Text(words?.globalLabelDownload ?? 'Download'),
+                            ],
                           ),
                         ),
                       ],
                 ),
               ),
-              TableWidget(headers: ['Document Name', 'Size', 'Date'], data: []),
+              TableWidget(
+                headers: [
+                  words?.userDocumentTableName ?? 'Document Name',
+                  words?.userDocumentTableSize ?? 'Size',
+                  words?.userDocumentTableDate ?? 'Date',
+                ],
+                data: [],
+              ),
             ],
           ),
         ),

@@ -1,4 +1,3 @@
-
 import 'package:eltakamel/core/app_routes/routes_strings.dart';
 import 'package:eltakamel/core/app_themes/colors/app_colors.dart';
 import 'package:eltakamel/core/utils/app_enums.dart';
@@ -13,6 +12,7 @@ import 'package:go_router/go_router.dart';
 
 import '../../../../../../core/helpers/validations/app_form_validations.dart'
     show AppFormValidations;
+import '../../../../../../core/utils/service_locator.dart' show sl;
 
 class LoginBody extends StatelessWidget {
   const LoginBody({super.key});
@@ -64,21 +64,14 @@ class LoginForm extends StatelessWidget {
                 Text(
                   'Login',
                   textAlign: TextAlign.start,
-                  style: Theme
-                      .of(context)
-                      .textTheme
-                      .headlineLarge,
+                  style: Theme.of(context).textTheme.headlineLarge,
                 ),
                 Text(
                   'Sign In to your account',
                   textAlign: TextAlign.start,
-                  style: Theme
-                      .of(
+                  style: Theme.of(
                     context,
-                  )
-                      .textTheme
-                      .bodySmall
-                      ?.copyWith(color: Colors.grey),
+                  ).textTheme.bodySmall?.copyWith(color: Colors.grey),
                 ),
                 CustomInput(
                   title: 'username or mobile number',
@@ -133,41 +126,35 @@ class LoginForm extends StatelessWidget {
                         height: 40.h,
                         alignment: Alignment.center,
                         color:
-                        isLoading
-                            ? AppColors.primary.withValues(
-                          alpha: 0.3 * 255,
-                        )
-                            : AppColors.primary,
+                            isLoading
+                                ? AppColors.primary.withValues(alpha: 0.3 * 255)
+                                : AppColors.primary,
                         child: Text(
                           'Login',
                           textAlign: TextAlign.center,
-                          style: Theme
-                              .of(context)
-                              .textTheme
-                              .labelLarge
-                              ?.copyWith(color: Colors.white),
+                          style: Theme.of(
+                            context,
+                          ).textTheme.labelLarge?.copyWith(color: Colors.white),
                         ),
                       ),
                     ),
                     TextButton(
                       onPressed:
-                      isLoading
-                          ? null
-                          : () {
-                        showDialog(
-                          context: context,
-                          builder: (ctx) {
-                            return _ForgetDialog();
-                          },
-                        );
-                      },
+                          isLoading
+                              ? null
+                              : () {
+                                showDialog(
+                                  context: context,
+                                  builder: (ctx) {
+                                    return _ForgetDialog();
+                                  },
+                                );
+                              },
                       child: Text(
                         'Forget Password?',
-                        style: Theme
-                            .of(context)
-                            .textTheme
-                            .labelLarge
-                            ?.copyWith(color: AppColors.darkBlue),
+                        style: Theme.of(context).textTheme.labelLarge?.copyWith(
+                          color: AppColors.darkBlue,
+                        ),
                       ),
                     ),
                   ],
@@ -189,111 +176,99 @@ class LoginForm extends StatelessWidget {
 }
 
 class _ForgetDialog extends StatelessWidget {
-  const _ForgetDialog({
-    super.key,
-  });
+  const _ForgetDialog({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final textTheme =
-        Theme
-            .of(context)
-            .textTheme;
+    final textTheme = Theme.of(context).textTheme;
     final inputBorder = OutlineInputBorder(
-        borderSide: BorderSide(
-            color: Colors.grey.shade300));
+      borderSide: BorderSide(color: Colors.grey.shade300),
+    );
     return BlocProvider(
-      create: (context) => LoginCubit(),
+      create: (context) => sl.call<LoginCubit>(),
       child: BlocConsumer<LoginCubit, LoginState>(
-          listener: (context, state) {
-            if (
-            state is ForgetSuccessState
-            ) {
-              toast('Your password is get delivered to your email shortly',
-                  Status.success);
-              context.pop();
-            } else if (
-            state is ForgetErrorState
-            ) {
-              toast('You need to write a valid registered email', Status.error);
-            }
-          },
-          builder: (BuildContext context, LoginState state) {
-            final cubit = LoginCubit.get(context);
+        listener: (context, state) {
+          if (state is ForgetSuccessState) {
+            toast(
+              'Your password is get delivered to your email shortly',
+              Status.success,
+            );
+            context.pop();
+          } else if (state is ForgetErrorState) {
+            toast('You need to write a valid registered email', Status.error);
+          }
+        },
+        builder: (BuildContext context, LoginState state) {
+          final cubit = LoginCubit.get(context);
 
-            return Dialog(
-              child: Container(
-                padding: REdgeInsets.all(16),
-                color: Colors.white,
-                child: Column(
-                  crossAxisAlignment:
-                  CrossAxisAlignment.start,
-                  mainAxisSize: MainAxisSize.min,
-                  spacing: 8.h,
-                  children: [
-                    Text(
-                      'Password Recovery',
-                      style: textTheme.displaySmall,
-                    ),
-                    Text(
-                      'Enter your email address to restore your password',
-                      textAlign: TextAlign.start,
-                      style: textTheme.bodySmall!
-                          .copyWith(
+          return Dialog(
+            child: Container(
+              padding: REdgeInsets.all(16),
+              color: Colors.white,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisSize: MainAxisSize.min,
+                spacing: 8.h,
+                children: [
+                  Text('Password Recovery', style: textTheme.displaySmall),
+                  Text(
+                    'Enter your email address to restore your password',
+                    textAlign: TextAlign.start,
+                    style: textTheme.bodySmall!.copyWith(color: Colors.grey),
+                  ),
+                  TextFormField(
+                    cursorColor: Colors.black,
+                    onChanged: (text) {
+                      cubit.changeRecoveryEmail(text);
+                    },
+                    decoration: InputDecoration(
+                      hintText: 'Email Address',
+                      hintStyle: textTheme.labelLarge!.copyWith(
                         color: Colors.grey,
                       ),
-                    ),
-                    TextFormField(
-                      cursorColor: Colors.black,
-                      onChanged: (text) {
-                        cubit.changeRecoveryEmail(text);
-                      },
-                      decoration: InputDecoration(
-                        hintText: 'Email Address',
-                        hintStyle: textTheme.labelLarge!
-                            .copyWith(color: Colors.grey),
 
-                        prefixIcon: Container(
-                          padding: EdgeInsets.zero,
-                          margin: EdgeInsets.zero,
-                          decoration: BoxDecoration(
-                              color: Colors.grey.shade100,
-                              border: Border.all(
-                                  color: Colors.grey.shade300)
-
-                          ), child: Icon(Icons.lock),),
-                        border: inputBorder,
-                        enabledBorder: inputBorder,
-                        disabledBorder: inputBorder,
-                        focusedBorder: inputBorder,
-                        focusedErrorBorder: inputBorder,
-                        errorBorder: inputBorder,
-                      ),
-                    ),
-                    ElevatedButton(
-                      onPressed: () async {
-                        await cubit.forgetPassword();
-                      },
-                      style: ButtonStyle(
-                        shape: WidgetStatePropertyAll(
-                            ContinuousRectangleBorder()),
-                        backgroundColor: WidgetStatePropertyAll(
-                            Colors.lightBlue.shade400),
-                      ),
-
-                      child: Text(
-                        'Restore',
-                        style: textTheme.labelLarge!
-                            .copyWith(
-                          color: Colors.white,
+                      prefixIcon: Container(
+                        padding: EdgeInsets.zero,
+                        margin: EdgeInsets.zero,
+                        decoration: BoxDecoration(
+                          color: Colors.grey.shade100,
+                          border: Border.all(color: Colors.grey.shade300),
                         ),
+                        child: Icon(Icons.lock),
+                      ),
+                      border: inputBorder,
+                      enabledBorder: inputBorder,
+                      disabledBorder: inputBorder,
+                      focusedBorder: inputBorder,
+                      focusedErrorBorder: inputBorder,
+                      errorBorder: inputBorder,
+                    ),
+                  ),
+                  ElevatedButton(
+                    onPressed: () async {
+                      await cubit.forgetPassword();
+                    },
+                    style: ButtonStyle(
+                      shape: WidgetStatePropertyAll(
+                        ContinuousRectangleBorder(),
+                      ),
+                      backgroundColor: WidgetStatePropertyAll(
+                        Colors.lightBlue.shade400,
                       ),
                     ),
-                  ],
-                ),
+
+                    child: Text(
+                      'Restore',
+                      style: textTheme.labelLarge!.copyWith(
+                        color: Colors.white,
+                      ),
+                    ),
+                  ),
+                ],
               ),
-            );
-          }
+            ),
+          );
+        },
       ),
     );
   }

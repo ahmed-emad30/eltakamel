@@ -12,6 +12,7 @@ import '../../features/login/presentation/login_screen/ui/login_screen.dart';
 import '../../features/splash/presentation/splash_screen/ui/splash_screen.dart'
     show SplashScreen;
 import '../app_themes/themes/app_light_theme.dart';
+import '../utils/service_locator.dart' show sl;
 
 class EltakamelApp extends StatelessWidget {
   const EltakamelApp({super.key});
@@ -25,7 +26,7 @@ class EltakamelApp extends StatelessWidget {
       splitScreenMode: true,
       builder: (_, child) {
         return BlocProvider(
-          create: (context) => LoginCubit(),
+          create: (context) => sl.call<LoginCubit>(),
           child: MaterialApp.router(
             routerConfig: GoRouter(
               // initialLocation: Routes.homeScreen,

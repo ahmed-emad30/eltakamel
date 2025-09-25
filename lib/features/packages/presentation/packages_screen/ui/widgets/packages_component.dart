@@ -20,7 +20,7 @@ class PackagesComponent extends StatelessWidget {
         builder: (context, state) {
           if (state is PackagesLoading) {
             return const Center(child: CircularProgressIndicator());
-          } else if (state is PackagesError && false) {
+          } else if (state is PackagesError) {
             return Center(
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,

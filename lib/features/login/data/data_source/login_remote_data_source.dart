@@ -22,7 +22,8 @@ class LoginRemoteDataSourceImp implements LoginRemoteDataSource  {
   @override
   Future<String> login(Map<String, String> form) async{
 final dioConsumer = sl.call<DioConsumer>();
-final response =await dioConsumer.post(EndPoints.login,body: FormData.fromMap(form),);
+dioConsumer.clearToken();
+    final response =await dioConsumer.post(EndPoints.login,body: FormData.fromMap(form),);
 final data =  response?.data ;
 final tokenKey = 'token';
 if(data != null && data.containsKey(tokenKey)){

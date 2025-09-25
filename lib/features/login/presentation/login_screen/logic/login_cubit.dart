@@ -1,6 +1,7 @@
 import 'dart:developer';
 
 import 'package:eltakamel/core/widgets/toast.dart';
+import 'package:eltakamel/features/home/data/data_source/home_remote_data_source.dart';
 import 'package:eltakamel/features/login/data/data_source/login_remote_data_source.dart';
 import 'package:eltakamel/features/login/data/model/languages_model.dart';
 import 'package:eltakamel/features/login/data/model/translations_model.dart';
@@ -32,7 +33,6 @@ class LoginCubit extends Cubit<LoginState> {
   final loginRepo = LoginRepositoryImp(LoginRemoteDataSourceImp());
   late LanguagesModel languages;
   late TranslationsModel translations;
-  String selectedLanguage = '';
 
   Future<void> getLanguages() async {
     final getLanguagesUseCase = GetLanguagesUseCase(loginRepo);
@@ -51,7 +51,7 @@ class LoginCubit extends Cubit<LoginState> {
 
 );*/
     emit(LoginLoadingState());
-    if (loginFormEntity?.userName == 'test' &&
+    if (loginFormEntity?.userName == 'tes' &&
         loginFormEntity?.password == 'test') {
       await getLanguageKeywords();
 
@@ -62,6 +62,7 @@ class LoginCubit extends Cubit<LoginState> {
       await loginUseCase
           .call(loginFormEntity: loginFormEntity!)
           .then((value) async {
+        password = loginFormEntity!.password;
         await getLanguageKeywords();
         emit(LoginSuccessState());
       })
